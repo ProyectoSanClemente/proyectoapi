@@ -61,20 +61,29 @@ Route::group(['prefix' => 'api', 'namespace' => 'API'], function ()
 });
 
 
-Route::resource('usuarios', 'UsuarioController');
-
-Route::get('usuarios/{id}/delete', [
-    'as' => 'usuarios.delete',
-    'uses' => 'UsuarioController@destroy',
-]);
-
-
-Route::resource('noticias', 'NoticeController');
-
-Route::get('noticias/{id}/delete', [
-    'as' => 'noticias.delete',
-    'uses' => 'NoticeController@destroy',
-]);
-
 
 Route::get('formulario', 'StoragenoticesController@index');
+
+
+
+Route::group(['middleware' => 'web'], function () {
+
+    Route::auth();
+    Route::get('/home', 'HomeController@index');
+
+    Route::resource('usuarios', 'UsuarioController');
+    Route::get('usuarios/{id}/delete', [
+        'as' => 'usuarios.delete',
+        'uses' => 'UsuarioController@destroy',
+    ]);
+
+    Route::resource('noticias', 'NoticeController');
+
+    Route::get('noticias/{id}/delete', [
+        'as' => 'noticias.delete',
+        'uses' => 'NoticeController@destroy',
+    ]);
+
+
+
+});

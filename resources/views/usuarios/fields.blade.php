@@ -16,10 +16,10 @@
 	{!! Form::text('apellido', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Correo Field -->
+<!-- Email Field -->
 <div class="form-group col-sm-6 col-lg-4">
-    {!! Form::label('correo', 'Correo:') !!}
-	{!! Form::text('correo', null, ['class' => 'form-control']) !!}
+    {!! Form::label('email', 'Email:') !!}
+	{!! Form::text('email', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Password Field -->

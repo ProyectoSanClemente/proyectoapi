@@ -61,27 +61,6 @@ class UsuarioController extends AppBaseController
 	}
 
 	/**
-	 * Display the specified Usuario.
-	 *
-	 * @param  int $id
-	 *
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		$usuario = $this->usuarioRepository->find($id);
-
-		if(empty($usuario))
-		{
-			Flash::error('Usuario no encontrado');
-
-			return redirect(route('usuarios.index'));
-		}
-
-		return view('usuarios.show')->with('usuario', $usuario);
-	}
-
-	/**
 	 * Show the form for editing the specified Usuario.
 	 *
 	 * @param  int $id

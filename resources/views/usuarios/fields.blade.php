@@ -3,15 +3,11 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Formulario de usuario</div>
-                
-
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
-                        
+                    <div class="panel-body">
                     	<!-- Rut Field -->
                     	<div class="form-group{{ $errors->has('rut') ? ' has-error' : '' }}">
-	                        <div class="form-group">                            
-	                            {!! Form::label('rut', 'Rut:',array('class'=>"col-md-4 control-label")) !!}
+	                        <div class="form-group">
+	                            {!! Form::label('rut', 'Rut:',['class'=>"col-md-4 control-label"]) !!}
 		                        <div class="col-md-6">
 		                        {!! Form::text('rut', null, ['class' => 'form-control']) !!}
 	                            
@@ -27,7 +23,7 @@
                         <!-- Nombre Field -->
                         <div class="form-group{{ $errors->has('nombre') ? ' has-error' : '' }}">
 	                        <div class="form-group">
-	                            {!! Form::label('nombre', 'Nombre:',array('class'=>"col-md-4 control-label")) !!}
+	                            {!! Form::label('nombre', 'Nombre:',['class'=>"col-md-4 control-label"]) !!}
 		                        <div class="col-md-6">
 								{!! Form::text('nombre', null, ['class' => 'form-control']) !!}
 	                             @if ($errors->has('nombre'))
@@ -44,7 +40,7 @@
                         <!-- Apellido Field -->
                         <div class="form-group{{ $errors->has('apellido') ? ' has-error' : '' }}">
 	                        <div class="form-group">
-	                            {!! Form::label('apellido', 'Apellido:',array('class'=>"col-md-4 control-label")) !!}
+	                            {!! Form::label('apellido', 'Apellido:',['class'=>"col-md-4 control-label"]) !!}
 		                        <div class="col-md-6">
 								{!! Form::text('apellido', null, ['class' => 'form-control']) !!}
 	                             @if ($errors->has('apellido'))
@@ -101,7 +97,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-user"></i>Guardar
+                                    <i class="glyphicon glyphicon-user"></i>  Guardar
                                 </button>
                             </div>
                         </div>

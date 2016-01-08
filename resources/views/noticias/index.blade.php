@@ -7,13 +7,13 @@
         @include('flash::message')
 
         <div class="row">
-            <h1 class="pull-left">Notices</h1>
-            <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('noticias.create') !!}">Add New</a>
+            <h1 class="pull-left">Noticias</h1>
+            <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('noticias.create') !!}">Añadir Noticia</a>
         </div>
 
         <div class="row">
             @if($notices->isEmpty())
-                <div class="well text-center">No Notices found.</div>
+                <div class="well text-center">Noticias no Encontradas</div>
             @else
                 @include('noticias.table')
             @endif

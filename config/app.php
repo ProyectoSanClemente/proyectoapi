@@ -150,7 +150,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
         Mitul\Generator\GeneratorServiceProvider::class,
-
+        Intervention\Image\ImageServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -208,7 +208,8 @@ return [
         'Form'      => Collective\Html\FormFacade::class,
         'HTML'      => Collective\Html\HtmlFacade::class,
         'Flash'     => Laracasts\Flash\Flash::class,
-
+        'Image'     => Intervention\Image\Facades\Image::class,
+        'Input'     => Illuminate\Support\Facades\Input::class,
     ],
 
 ];

@@ -7,6 +7,8 @@ use App\Libraries\Repositories\NoticeRepository;
 use Flash;
 use Mitul\Controller\AppBaseController as AppBaseController;
 use Response;
+use Input;
+use Image;
 
 class NoticeController extends AppBaseController
 {
@@ -51,11 +53,13 @@ class NoticeController extends AppBaseController
 	 */
 	public function store(CreateNoticeRequest $request)
 	{
+
 		$input = $request->all();
-
+		$filename = 'images/noticias/'.$input['titulo'].'.jpg';
+	    $input['imagen']=$filename;
+	    Image::make(Input::file('imagen'))->resize(1000, 720)->save($filename);
 		$notice = $this->noticeRepository->create($input);
-
-		Flash::success('Notice saved successfully.');
+		Flash::success('Noticia Guardada con Éxito.');
 
 		return redirect(route('noticias.index'));
 	}
@@ -73,7 +77,7 @@ class NoticeController extends AppBaseController
 
 		if(empty($notice))
 		{
-			Flash::error('Notice not found');
+			Flash::error('Noticia no Encontrada.');
 
 			return redirect(route('noticias.index'));
 		}
@@ -94,7 +98,7 @@ class NoticeController extends AppBaseController
 
 		if(empty($notice))
 		{
-			Flash::error('Notice not found');
+			Flash::error('Noticia no Encontrada.');
 
 			return redirect(route('noticias.index'));
 		}
@@ -116,14 +120,14 @@ class NoticeController extends AppBaseController
 
 		if(empty($notice))
 		{
-			Flash::error('Notice not found');
+			Flash::error('Noticia no Encontrada.');
 
 			return redirect(route('noticias.index'));
 		}
 
 		$this->noticeRepository->updateRich($request->all(), $id);
 
-		Flash::success('Notice updated successfully.');
+		Flash::success('Notice Actualizada Correctamente.');
 
 		return redirect(route('noticias.index'));
 	}
@@ -141,14 +145,16 @@ class NoticeController extends AppBaseController
 
 		if(empty($notice))
 		{
-			Flash::error('Notice not found');
+			Flash::error('Noticia no Encontrada.');
 
 			return redirect(route('noticias.index'));
 		}
 
 		$this->noticeRepository->delete($id);
+		if(file_exists($notice->imagen))
+			unlink($notice->imagen);
 
-		Flash::success('Notice deleted successfully.');
+		Flash::success('Noticia Borrada con Éxito.');
 
 		return redirect(route('noticias.index'));
 	}

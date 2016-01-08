@@ -54,6 +54,7 @@
     "laravelcollective/html": "5.2.*",
     "bosnadev/repositories": "dev-master",
     "mitulgolakiya/laravel-api-generator": "dev-master",
-    "doctrine/dbal": "dev-master"
+    "doctrine/dbal": "dev-master",
+    "intervention/image": "dev-master"
     }
 }

@@ -1,6 +1,6 @@
 <table class="table">
     <thead>
-    <th>Titulo</th>
+            <th>Titulo</th>
 			<th>Contenido</th>
 			<th>Imagen</th>
     <th width="50px">Action</th>

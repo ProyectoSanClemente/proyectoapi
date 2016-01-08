@@ -12,10 +12,11 @@
 <div class="form-group col-sm-6 col-lg-4">
     {!! Form::label('imagen', 'Imagen:') !!}
 	{!! Form::file('imagen', null,['class' => 'form-control','accept'=>"image/x-png, image/gif, image/jpeg"]) !!}
+
 </div>
 
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
-    {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
+    {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
 </div>

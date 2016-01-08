@@ -1,6 +1,7 @@
 <?php namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model as Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Usuario extends Model
 {
@@ -12,7 +13,7 @@ class Usuario extends Model
 	    "rut",
 		"nombre",
 		"apellido",
-		"correo",
+		"email",
 		"password"
 	];
 
@@ -25,16 +26,25 @@ class Usuario extends Model
         "rut" => "integer",
 		"nombre" => "string",
 		"apellido" => "string",
-		"correo" => "string",
+		"email" => "string",
 		"password" => "string"
     ];
 
 	public static $rules = [
 	    "rut" => "required",
-		"nombre" => "required",
-		"apellido" => "required",
-		"correo" => "required",
-		"password" => "required"
+		"nombre" => "required|alpha",
+		"apellido" => "required|alpha",
+		"email" => "required|email",
+		"password" => ""
 	];
 
+	protected $hidden = [
+        'password', 'remember_token',
+    ];
+
+
+    public function setPasswordAttribute($password)
+    {   
+        $this->attributes['password'] = bcrypt($password);
+    }
 }

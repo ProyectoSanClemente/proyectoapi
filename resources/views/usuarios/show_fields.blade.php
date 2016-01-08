@@ -16,10 +16,10 @@
     <p>{!! $usuario->apellido !!}</p>
 </div>
 
-<!-- Correo Field -->
+<!-- email Field -->
 <div class="form-group">
-    {!! Form::label('correo', 'Correo:') !!}
-    <p>{!! $usuario->correo !!}</p>
+    {!! Form::label('email', 'email:') !!}
+    <p>{!! $usuario->email !!}</p>
 </div>
 
 <!-- Password Field -->

@@ -94,9 +94,11 @@ class UsuarioController extends AppBaseController
 
 		if(empty($usuario))
 		{
-			Flash::error('Usuario not found');
+			Flash::error('Usuario no encontrado');
 
-			return redirect(route('usuarios.index'));
+			return redirect(route('usuarios.index'))
+			                    ->withInput();
+
 		}
 
 		return view('usuarios.edit')->with('usuario', $usuario);
@@ -116,14 +118,13 @@ class UsuarioController extends AppBaseController
 
 		if(empty($usuario))
 		{
-			Flash::error('Usuario not found');
-
+			Flash::error('Usuario no encontrado');
 			return redirect(route('usuarios.index'));
 		}
 
 		$this->usuarioRepository->updateRich($request->all(), $id);
 
-		Flash::success('Usuario actualizado exitosamente!.');
+		Flash::success('Usuario '.$usuario->rut.' actualizado exitosamente!.');
 
 		return redirect(route('usuarios.index'));
 	}

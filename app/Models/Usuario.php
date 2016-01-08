@@ -32,10 +32,10 @@ class Usuario extends Model
 
 	public static $rules = [
 	    "rut" => "required",
-		"nombre" => "required",
-		"apellido" => "required",
-		"email" => "required",
-		"password" => "required"
+		"nombre" => "required|alpha",
+		"apellido" => "required|alpha",
+		"email" => "required|email",
+		"password" => ""
 	];
 
 	protected $hidden = [

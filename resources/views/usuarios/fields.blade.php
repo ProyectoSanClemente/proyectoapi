@@ -1,39 +1,3 @@
-<!-- Rut Field -->
-<div class="form-group col-sm-6 col-lg-4">
-    {!! Form::label('rut', 'Rut:') !!}
-	{!! Form::text('rut', null, ['class' => 'form-control']) !!}
-</div>
-
-<!-- Nombre Field -->
-<div class="form-group col-sm-6 col-lg-4">
-    {!! Form::label('nombre', 'Nombre:') !!}
-	{!! Form::text('nombre', null, ['class' => 'form-control']) !!}
-</div>
-
-<!-- Apellido Field -->
-<div class="form-group col-sm-6 col-lg-4">
-    {!! Form::label('apellido', 'Apellido:') !!}
-	{!! Form::text('apellido', null, ['class' => 'form-control']) !!}
-</div>
-
-<!-- Email Field -->
-<div class="form-group col-sm-6 col-lg-4">
-    {!! Form::label('email', 'Email:') !!}
-	{!! Form::text('email', null, ['class' => 'form-control']) !!}
-</div>
-{{-- 
-<!-- Password Field -->
-<div class="form-group col-sm-6 col-lg-4">
-    {!! Form::label('password', 'Password:') !!}
-	{!! Form::password('password', ['class' => 'form-control']) !!}
-</div> --}}
-
-
-<!-- Submit Field -->
-<div class="form-group col-sm-12">
-    {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
-</div>
-
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -105,15 +69,14 @@
                                 @endif	
 	                            </div>
 	                        </div>
-	                    </div>	                    
-       
+	                    </div>        
+       					
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">Password</label>
 
                             <div class="col-md-6">
                                 <input type="password" class="form-control" name="password">
-                                 {{ Form::text('password') }}
-                                @if ($errors->has('password'))
+                                 @if ($errors->has('password'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
@@ -134,11 +97,11 @@
                                 @endif
                             </div>
                         </div>
-
+                        <!-- Submit Field -->
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-user"></i>Register
+                                    <i class="fa fa-btn fa-user"></i>Guardar
                                 </button>
                             </div>
                         </div>

@@ -6,9 +6,10 @@
 
         @include('flash::message')
 
+        
         <div class="row">
             <h1 class="pull-left">Usuarios</h1>
-            <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('usuarios.create') !!}">Añadir Nuevo Usuario</a>
+             <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('usuarios.create') !!}">  Añadir Nuevo Usuario<span class="glyphicon glyphicon-plus"></span></a>
         </div>
 
         <div class="row">
@@ -18,7 +19,6 @@
                 @include('usuarios.table')
             @endif
         </div>
-
         @include('common.paginate', ['records' => $usuarios])
 
 

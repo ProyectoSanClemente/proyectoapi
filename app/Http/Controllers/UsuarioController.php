@@ -5,6 +5,8 @@ use App\Http\Requests\CreateUsuarioRequest;
 use App\Http\Requests\UpdateUsuarioRequest;
 use App\Libraries\Repositories\UsuarioRepository;
 use Flash;
+use Input;
+use Image;
 use Mitul\Controller\AppBaseController as AppBaseController;
 use Response;
 
@@ -51,10 +53,17 @@ class UsuarioController extends AppBaseController
 	 */
 	public function store(CreateUsuarioRequest $request)
 	{
-		$input = $request->all();
+		$input = $request->all();		
+		
+		if (Input::hasFile('imagen')){
+			$filename = 'images/avatar/'.$input['rut'].'.jpg';              
+            Image::make(Input::file('imagen'))->resize(300, 300)->save($filename);
+        }
+        else
+        	$input['imagen']='images/avatar/default.png';
 
-		$usuario = $this->usuarioRepository->create($input);
-
+        $usuario = $this->usuarioRepository->create($input);
+		
 		Flash::success('Usuario creado exitosamente!.');
 
 		return redirect(route('usuarios.index'));
@@ -120,9 +129,14 @@ class UsuarioController extends AppBaseController
 		{
 			Flash::error('Usuario no encontrado');
 			return redirect(route('usuarios.index'));
-		}
+		}	
+		$input=$request->all();
+		if (Input::hasFile('imagen')){//Actualizar Imagen
+			$input['imagen'] = 'images/avatar/'.$usuario->rut.'.jpg';           
+            Image::make(Input::file('imagen'))->resize(300, 300)->save($input['imagen']);
+        }
 
-		$this->usuarioRepository->updateRich($request->all(), $id);
+        $this->usuarioRepository->updateRich($input, $id);
 
 		Flash::success('Usuario '.$usuario->rut.' actualizado exitosamente!.');
 
@@ -148,6 +162,9 @@ class UsuarioController extends AppBaseController
 		}
 
 		$this->usuarioRepository->delete($id);
+		$filename = 'images/avatar/'.$usuario->rut.'.jpg';
+		if(file_exists($filename))
+			unlink($filename);
 
 		Flash::success('Usuario eliminado exitosamente!.');
 

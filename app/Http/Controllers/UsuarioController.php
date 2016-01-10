@@ -7,10 +7,10 @@ use App\Libraries\Repositories\UsuarioRepository;
 use Flash;
 use Input;
 use Image;
-use Mitul\Controller\AppBaseController as AppBaseController;
+use Hash;
 use Response;
 
-class UsuarioController extends AppBaseController
+class UsuarioController extends Controller
 {
 
 	/** @var  UsuarioRepository */
@@ -86,7 +86,6 @@ class UsuarioController extends AppBaseController
 
 			return redirect(route('usuarios.index'));
 		}
-
 		return view('usuarios.show')->with('usuario', $usuario);
 	}
 
@@ -129,12 +128,17 @@ class UsuarioController extends AppBaseController
 		{
 			Flash::error('Usuario no encontrado');
 			return redirect(route('usuarios.index'));
-		}	
+		}
 		$input=$request->all();
 		if (Input::hasFile('imagen')){//Actualizar Imagen
 			$input['imagen'] = 'images/avatar/'.$usuario->rut.'.jpg';           
             Image::make(Input::file('imagen'))->resize(300, 300)->save($input['imagen']);
         }
+
+        if ($input['old_password']!="" && !Hash::check($input['old_password'], $usuario->password)) {
+        	return redirect(action('UsuarioController@edit', array($id)))
+   				   ->withErrors('El Password actual no corresponde');
+		}
 
         $this->usuarioRepository->updateRich($input, $id);
 

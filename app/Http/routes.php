@@ -31,36 +31,6 @@ Route::group(['middleware' => ['web']], function () {
 });
 
 
-/*
-|--------------------------------------------------------------------------
-| API routes
-|--------------------------------------------------------------------------
-*/
-
-Route::group(['prefix' => 'api', 'namespace' => 'API'], function ()
-{
-	Route::group(['prefix' => 'v1'], function ()
-	{
-        require Config::get('generator.path_api_routes');
-	});
-});
-
-
-/*
-|--------------------------------------------------------------------------
-| API routes
-|--------------------------------------------------------------------------
-*/
-
-Route::group(['prefix' => 'api', 'namespace' => 'API'], function ()
-{
-	Route::group(['prefix' => 'v1'], function ()
-	{
-        require Config::get('generator.path_api_routes');
-	});
-});
-
-
 
 Route::get('formulario', 'StoragenoticesController@index');
 
@@ -84,6 +54,7 @@ Route::group(['middleware' => 'web'], function () {
         'uses' => 'NoticeController@destroy',
     ]);
 
+    Route::get('contacto', array('uses' => 'ContactController@contacto'));
 
 
 });

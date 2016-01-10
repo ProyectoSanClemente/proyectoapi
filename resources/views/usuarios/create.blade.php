@@ -7,7 +7,7 @@
 
     {!! Form::open(['route' => 'usuarios.store','files'=> true]) !!}
 
-        @include('usuarios.fields')
+        @include('usuarios.fields_create')
 
     {!! Form::close() !!}
 </div>

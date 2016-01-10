@@ -6,8 +6,9 @@
 
     {!! Form::model($usuario, ['route' => ['usuarios.update', $usuario->id], 'method' => 'patch','files'=> true]) !!}
 
-        @include('usuarios.fields')
+        @include('usuarios.fields_edit')
 
     {!! Form::close() !!}
+
 </div>
 @endsection

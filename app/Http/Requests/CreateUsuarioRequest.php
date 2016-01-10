@@ -22,7 +22,7 @@ class CreateUsuarioRequest extends Request {
 	 */
 	public function rules()
 	{
-		return Usuario::$rules;
+		return Usuario::$create_rules;
 	}
 
 }

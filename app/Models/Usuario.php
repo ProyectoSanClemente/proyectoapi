@@ -6,7 +6,7 @@ class Usuario extends Model
 {
     
 	public $table = "usuarios";
-    
+
 
 	public $fillable = [
 	    "rut",
@@ -30,22 +30,29 @@ class Usuario extends Model
 		"password" => "string"
     ];
 
-	public static $rules = [
+	public static $create_rules = [
 	    "rut" => "required",
 		"nombre" => "required|alpha",
 		"apellido" => "required|alpha",
 		"email" => "required|email",
-		"password" => ""
+		'password' => 'required|min:3|confirmed',
+        'password_confirmation' => 'required|min:3'
 		
 	];
 
-	protected $hidden = [
-        'password', 'remember_token',
-    ];
-
+		public static $update_rules = [
+	    "rut" => "required",
+		"nombre" => "required|alpha",
+		"apellido" => "required|alpha",
+		"email" => "required|email",
+		'old_password'=>"min:3",
+		'password' => 'required_with:old_password|min:3|confirmed',
+        'password_confirmation' => 'min:3'	
+	];
 
     public function setPasswordAttribute($password)
     {   
         $this->attributes['password'] = bcrypt($password);
     }
+
 }

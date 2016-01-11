@@ -48,9 +48,7 @@
                  <ul class="nav navbar-nav">
                     <li> {{ HTML::link('usuarios', 'Directorio Empleados')}}</li>
                 </ul>
-                <ul class="nav navbar-nav">
-                    <li> {{ HTML::link('contacto', 'Contacto')}}</li> 
-                </ul>
+
                 <ul class="nav navbar-nav">
                     <li> {{ HTML::link('usuarios', 'Eventos')}}</li>
                 </ul>
@@ -101,7 +99,6 @@
             </div>
         </div>
     </nav>
-
     @yield('content')
 
 

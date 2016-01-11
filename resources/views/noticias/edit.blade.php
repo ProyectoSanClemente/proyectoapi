@@ -5,7 +5,7 @@
 
     @include('common.errors')
 
-    {!! Form::model($notice, ['route' => ['noticias.update', $notice->id], 'method' => 'patch']) !!}
+    {!! Form::model($notice, ['route' => ['noticias.update', $notice->id], 'method' => 'patch','files'=> 'true']) !!}
 
         @include('noticias.fields')
 

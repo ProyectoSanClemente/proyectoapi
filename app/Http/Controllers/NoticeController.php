@@ -116,18 +116,22 @@ class NoticeController extends AppBaseController
 	 */
 	public function update($id, UpdateNoticeRequest $request)
 	{
+		$input = $request->all();
 		$notice = $this->noticeRepository->find($id);
-
 		if(empty($notice))
 		{
 			Flash::error('Noticia no Encontrada.');
 
 			return redirect(route('noticias.index'));
 		}
+		if (Input::hasFile('imagen')){
+			unlink($notice->imagen);
+	    	$input['imagen']='images/noticias/'.$input['titulo'].'.jpg';
+	    	Image::make(Input::file('imagen'))->resize(640, 480)->save($input['imagen']);
+	    }
+		$this->noticeRepository->updateRich($input, $id);
 
-		$this->noticeRepository->updateRich($request->all(), $id);
-
-		Flash::success('Notice Actualizada Correctamente.');
+		Flash::success('Noticia Actualizada Correctamente.');
 
 		return redirect(route('noticias.index'));
 	}

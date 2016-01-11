@@ -28,7 +28,6 @@ class Notice extends Model
 	public static $rules = [
 	    "titulo" => "required",
 		"contenido" => "required",
-		"imagen" => "required"
 	];
 
 }

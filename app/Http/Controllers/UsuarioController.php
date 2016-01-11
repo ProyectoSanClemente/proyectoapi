@@ -56,8 +56,8 @@ class UsuarioController extends Controller
 		$input = $request->all();		
 		
 		if (Input::hasFile('imagen')){
-			$filename = 'images/avatar/'.$input['rut'].'.jpg';              
-            Image::make(Input::file('imagen'))->resize(300, 300)->save($filename);
+			$input['imagen'] = 'images/avatar/'.$input['rut'].'.jpg';              
+            Image::make(Input::file('imagen'))->resize(300, 300)->save($input['imagen']);
         }
         else
         	$input['imagen']='images/avatar/default.png';

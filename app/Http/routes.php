@@ -56,5 +56,13 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('contacto', array('uses' => 'ContactController@contacto'));
 
+    
+    Route::resource('cuentas', 'CuentaController');
+
+    Route::get('cuentas/{id}/delete', [
+        'as' => 'cuentas.delete',
+        'uses' => 'CuentaController@destroy',
+    ]);
+
 
 });

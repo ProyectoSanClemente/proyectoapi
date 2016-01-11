@@ -55,4 +55,9 @@ class Usuario extends Model
         $this->attributes['password'] = bcrypt($password);
     }
 
+    public function cuenta()
+    {
+        return $this->hasOne('Cuenta','user_id');
+    }
+
 }

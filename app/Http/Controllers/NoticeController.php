@@ -125,7 +125,8 @@ class NoticeController extends AppBaseController
 			return redirect(route('noticias.index'));
 		}
 		if (Input::hasFile('imagen')){
-			unlink($notice->imagen);
+			if(file_exists($notice->imagen))
+				unlink($notice->imagen);
 	    	$input['imagen']='images/noticias/'.$input['titulo'].'.jpg';
 	    	Image::make(Input::file('imagen'))->resize(640, 480)->save($input['imagen']);
 	    }

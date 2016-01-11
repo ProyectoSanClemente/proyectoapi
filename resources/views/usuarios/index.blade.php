@@ -11,6 +11,9 @@
             <h1 class="pull-left">Usuarios</h1>
              <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('usuarios.create') !!}">  Añadir Nuevo Usuario<span class="glyphicon glyphicon-plus"></span></a>
         </div>
+        <div class="row">
+             <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('cuentas.create') !!}">  Añadir Nueva Cuenta<span class="glyphicon glyphicon-plus"></span></a>
+        </div>
 
         <div class="row">
             @if($usuarios->isEmpty())

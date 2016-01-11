@@ -28,7 +28,7 @@ class NoticeController extends AppBaseController
 	 */
 	public function index()
 	{
-		$notices = $this->noticeRepository->paginate(10);
+		$notices = $this->noticeRepository->paginate(4);
 
 		return view('noticias.index')
 			->with('notices', $notices);

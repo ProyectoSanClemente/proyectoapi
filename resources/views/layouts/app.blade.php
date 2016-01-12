@@ -62,8 +62,11 @@
                     <li> {{ HTML::link('usuarios', 'Contenido')}}</li><li> {{ HTML::link('usuarios', 'Flujo de Trabajo')}}</li>
                 </ul>
                 <ul class="nav navbar-nav">
-                    <li> {{ HTML::link('usuarios', 'Administrador')}}</li> 
+                    <li> {{ HTML::link('mail', 'Correo')}}</li>
                 </ul>
+                <ul class="nav navbar-nav">
+                    <li> {{ HTML::link('usuarios', 'Administrador')}}</li> 
+                </ul>                
                 <ul class="nav navbar-nav">
                     <li> {{ HTML::link('usuarios', 'Reportes')}}</li>
                 </ul>

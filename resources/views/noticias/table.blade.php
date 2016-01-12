@@ -25,8 +25,7 @@
                     @endif
                         <a class="btn btn-primary" href="#" data-toggle="modal" data-target="#myModal{{$notice->id}}">Leer más <span class="glyphicon glyphicon-chevron-right"></span></a>
                 
-                </p>
-
+                    </p>
                 <p><a href="{!! route('noticias.edit', [$notice->id]) !!}"><i class="glyphicon glyphicon-edit"></i></a>
                 <a href="{!! route('noticias.delete', [$notice->id]) !!}" onclick="return confirm('Are you sure wants to delete this Notice?')"><i class="glyphicon glyphicon-remove"></i></a>
                 @include('noticias.show')</p>

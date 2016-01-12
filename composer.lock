@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "81885d56db8e99d53967407fb71d46f3",
+    "hash": "8a28a3c880825260f1bfe237f7cb5966",
     "content-hash": "f3f4aec42a019f85bb379cfb655737bb",
     "packages": [
         {
@@ -428,12 +428,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "df7aeeaa1fb31fc62f68687d5f1ec5fdbe5e80df"
+                "reference": "a3a86aa50ebfe180ac5943cce90a40262041bbdf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/df7aeeaa1fb31fc62f68687d5f1ec5fdbe5e80df",
-                "reference": "df7aeeaa1fb31fc62f68687d5f1ec5fdbe5e80df",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/a3a86aa50ebfe180ac5943cce90a40262041bbdf",
+                "reference": "a3a86aa50ebfe180ac5943cce90a40262041bbdf",
                 "shasum": ""
             },
             "require": {
@@ -491,7 +491,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2016-01-07 12:15:02"
+            "time": "2016-01-10 18:11:58"
         },
         {
             "name": "doctrine/inflector",
@@ -678,12 +678,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Intervention/image.git",
-                "reference": "9f29360b8ab94585cb9e80cf9045abd5b85feb89"
+                "reference": "86dfe2f2a95aa9eed58faf1cc1dae6534a6ce931"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/image/zipball/9f29360b8ab94585cb9e80cf9045abd5b85feb89",
-                "reference": "9f29360b8ab94585cb9e80cf9045abd5b85feb89",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/86dfe2f2a95aa9eed58faf1cc1dae6534a6ce931",
+                "reference": "86dfe2f2a95aa9eed58faf1cc1dae6534a6ce931",
                 "shasum": ""
             },
             "require": {
@@ -732,7 +732,7 @@
                 "thumbnail",
                 "watermark"
             ],
-            "time": "2016-01-02 19:15:13"
+            "time": "2016-01-10 11:20:02"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -1194,12 +1194,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mitulgolakiya/laravel-api-generator.git",
-                "reference": "7184d22dd8828ed538d92cc5274e1ff2d1e5a878"
+                "reference": "c96b6f0f5ae3362f8cfcbe3a84b3f1e780a8eee9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mitulgolakiya/laravel-api-generator/zipball/7184d22dd8828ed538d92cc5274e1ff2d1e5a878",
-                "reference": "7184d22dd8828ed538d92cc5274e1ff2d1e5a878",
+                "url": "https://api.github.com/repos/mitulgolakiya/laravel-api-generator/zipball/c96b6f0f5ae3362f8cfcbe3a84b3f1e780a8eee9",
+                "reference": "c96b6f0f5ae3362f8cfcbe3a84b3f1e780a8eee9",
                 "shasum": ""
             },
             "require": {
@@ -1235,7 +1235,7 @@
                 "model",
                 "scaffold"
             ],
-            "time": "2016-01-07 03:52:34"
+            "time": "2016-01-11 04:40:45"
         },
         {
             "name": "monolog/monolog",

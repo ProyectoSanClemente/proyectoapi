@@ -56,6 +56,8 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('contacto', array('uses' => 'ContactController@contacto'));
 
+    Route::get('sistemas', array('uses' => 'SistemaController@index'));
+
     
     Route::resource('cuentas', 'CuentaController');
 

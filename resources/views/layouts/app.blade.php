@@ -68,7 +68,7 @@
                     <li> {{ HTML::link('usuarios', 'Administrador')}}</li> 
                 </ul>                
                 <ul class="nav navbar-nav">
-                    <li> {{ HTML::link('usuarios', 'Reportes')}}</li>
+                    <li> {{ HTML::link('sistemas', 'Sistemas')}}</li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->

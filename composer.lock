@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "81885d56db8e99d53967407fb71d46f3",
-    "content-hash": "f3f4aec42a019f85bb379cfb655737bb",
+    "hash": "356feac28b52c7127b7dd23e7b623b69",
+    "content-hash": "f561c02c5818e0faf3cc2b25faec1560",
     "packages": [
         {
             "name": "bosnadev/repositories",
@@ -428,12 +428,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "df7aeeaa1fb31fc62f68687d5f1ec5fdbe5e80df"
+                "reference": "a3a86aa50ebfe180ac5943cce90a40262041bbdf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/df7aeeaa1fb31fc62f68687d5f1ec5fdbe5e80df",
-                "reference": "df7aeeaa1fb31fc62f68687d5f1ec5fdbe5e80df",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/a3a86aa50ebfe180ac5943cce90a40262041bbdf",
+                "reference": "a3a86aa50ebfe180ac5943cce90a40262041bbdf",
                 "shasum": ""
             },
             "require": {
@@ -491,7 +491,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2016-01-07 12:15:02"
+            "time": "2016-01-10 18:11:58"
         },
         {
             "name": "doctrine/inflector",
@@ -678,12 +678,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Intervention/image.git",
-                "reference": "9f29360b8ab94585cb9e80cf9045abd5b85feb89"
+                "reference": "86dfe2f2a95aa9eed58faf1cc1dae6534a6ce931"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/image/zipball/9f29360b8ab94585cb9e80cf9045abd5b85feb89",
-                "reference": "9f29360b8ab94585cb9e80cf9045abd5b85feb89",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/86dfe2f2a95aa9eed58faf1cc1dae6534a6ce931",
+                "reference": "86dfe2f2a95aa9eed58faf1cc1dae6534a6ce931",
                 "shasum": ""
             },
             "require": {
@@ -732,7 +732,7 @@
                 "thumbnail",
                 "watermark"
             ],
-            "time": "2016-01-02 19:15:13"
+            "time": "2016-01-10 11:20:02"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -1194,12 +1194,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mitulgolakiya/laravel-api-generator.git",
-                "reference": "7184d22dd8828ed538d92cc5274e1ff2d1e5a878"
+                "reference": "c96b6f0f5ae3362f8cfcbe3a84b3f1e780a8eee9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mitulgolakiya/laravel-api-generator/zipball/7184d22dd8828ed538d92cc5274e1ff2d1e5a878",
-                "reference": "7184d22dd8828ed538d92cc5274e1ff2d1e5a878",
+                "url": "https://api.github.com/repos/mitulgolakiya/laravel-api-generator/zipball/c96b6f0f5ae3362f8cfcbe3a84b3f1e780a8eee9",
+                "reference": "c96b6f0f5ae3362f8cfcbe3a84b3f1e780a8eee9",
                 "shasum": ""
             },
             "require": {
@@ -1235,7 +1235,7 @@
                 "model",
                 "scaffold"
             ],
-            "time": "2016-01-07 03:52:34"
+            "time": "2016-01-11 04:40:45"
         },
         {
             "name": "monolog/monolog",
@@ -1503,6 +1503,49 @@
                 "random"
             ],
             "time": "2016-01-06 13:31:20"
+        },
+        {
+            "name": "php-imap/php-imap",
+            "version": "2.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/barbushin/php-imap.git",
+                "reference": "cc1a49a3f68090db182183c59ffbc09055d59f5b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/barbushin/php-imap/zipball/cc1a49a3f68090db182183c59ffbc09055d59f5b",
+                "reference": "cc1a49a3f68090db182183c59ffbc09055d59f5b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "PhpImap": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD 3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Sergey Barbushin",
+                    "email": "barbushin@gmail.com",
+                    "homepage": "http://linkedin.com/in/barbushin"
+                }
+            ],
+            "description": "PHP class to access mailbox by POP3/IMAP/NNTP using IMAP extension",
+            "homepage": "https://github.com/barbushin/php-imap",
+            "keywords": [
+                "imap",
+                "mail",
+                "php"
+            ],
+            "time": "2015-09-16 07:40:39"
         },
         {
             "name": "psr/http-message",
@@ -3779,6 +3822,8 @@
     },
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": ">=5.5.9"
+    },
     "platform-dev": []
 }

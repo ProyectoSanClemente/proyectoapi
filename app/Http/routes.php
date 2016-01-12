@@ -64,5 +64,7 @@ Route::group(['middleware' => 'web'], function () {
         'uses' => 'CuentaController@destroy',
     ]);
 
+    Route::get('mail', array('uses' => 'MailController@mails'));    
+
 
 });

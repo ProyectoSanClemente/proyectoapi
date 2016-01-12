@@ -56,8 +56,6 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('contacto', array('uses' => 'ContactController@contacto'));
 
-    Route::get('sistemas', array('uses' => 'SistemaController@index'));
-
     
     Route::resource('cuentas', 'CuentaController');
 
@@ -73,4 +71,12 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('mail', array('uses' => 'MailController@mails'));    
     Route::get('display', array('uses' => 'MailController@getMail')); 
 
+    Route::resource('sistemas', 'SistemaController');
+
+    Route::get('sistemas/{id}/delete', [
+        'as' => 'sistemas.delete',
+        'uses' => 'SistemaController@destroy',
+    ]);
+
 });
+

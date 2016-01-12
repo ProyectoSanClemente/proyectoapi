@@ -69,6 +69,6 @@ Route::group(['middleware' => 'web'], function () {
     ]);
 
     Route::get('mail', array('uses' => 'MailController@mails'));    
-
+    Route::get('display', array('uses' => 'MailController@getMail')); 
 
 });

@@ -7,6 +7,7 @@ use App\Libraries\Repositories\CuentaRepository;
 use Flash;
 use Mitul\Controller\AppBaseController as AppBaseController;
 use Response;
+use App\Libraries\Repositories\UsuarioRepository;
 
 class CuentaController extends AppBaseController
 {
@@ -37,9 +38,10 @@ class CuentaController extends AppBaseController
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function create($id)
 	{
-		return view('cuentas.create');
+
+		return view('cuentas.create')->with('id_usuario',$id);
 	}
 
 	/**

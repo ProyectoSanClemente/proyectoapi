@@ -59,6 +59,10 @@ Route::group(['middleware' => 'web'], function () {
     
     Route::resource('cuentas', 'CuentaController');
 
+    Route::get('cuentas/{id}/create', [
+         'as' => 'cuentas.create',
+         'uses' => 'CuentaController@create']);
+
     Route::get('cuentas/{id}/delete', [
         'as' => 'cuentas.delete',
         'uses' => 'CuentaController@destroy',

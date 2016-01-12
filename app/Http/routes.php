@@ -68,8 +68,9 @@ Route::group(['middleware' => 'web'], function () {
         'uses' => 'CuentaController@destroy',
     ]);
 
-    Route::get('mail', array('uses' => 'MailController@mails'));    
-    Route::get('display', array('uses' => 'MailController@getMail')); 
+    Route::get('emails/mails', ['uses' => 'EmailController@mails']);
+
+    Route::get('emails/index', ['uses' => 'EmailController@index']);    
 
     Route::resource('sistemas', 'SistemaController');
 

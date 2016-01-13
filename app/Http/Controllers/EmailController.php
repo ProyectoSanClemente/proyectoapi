@@ -15,14 +15,17 @@ use Flash;
 class EmailController extends Controller
 {
 
+    private function conect(){
+    	$hostname="{sanclemente.cl:993/imap/ssl/novalidate-cert}INBOX";
+	   	$username="prueba";
+     	$password="Prueba2015";
+    	$mailbox = new ImapMailbox($hostname, $username,$password);			
+    	return $mailbox;
+    }
+
 	public function index()
     {
-
-    	$hostname="{sanclemente.cl:993/imap/ssl/novalidate-cert}INBOX";
-	   	$username="mgonzalez";
-     	$password="maydelin16";
-    	$mailbox = new ImapMailbox($hostname, $username,$password);
-		
+		$mailbox = $this->conect();
 		$mailboxmsginfo = $mailbox->getMailboxInfo();
 
 		return view('emails.index')
@@ -30,13 +33,8 @@ class EmailController extends Controller
     }
 
     public function mails(){
-    	$hostname="{sanclemente.cl:993/imap/ssl/novalidate-cert}INBOX";
-	   	$username="mgonzalez";
-     	$password="maydelin16";
-    	$mailbox = new ImapMailbox($hostname, $username,$password);
-		
+		$mailbox = $this->conect();
 		$mailboxmsginfo = $mailbox->getMailboxInfo();
-
 		$mailsIds = $mailbox->searchMailbox('ALL');
 
 		if(!$mailsIds) {
@@ -44,7 +42,7 @@ class EmailController extends Controller
 		}
 		else{
 			$mailsinfo = $mailbox->getMailsInfo($mailsIds);
-
+			$mailsinfo=array_reverse($mailsinfo);
 			return view('emails.mails')
 	    			->with('mailboxmsginfo',$mailboxmsginfo)
 	    			->with('mailsinfo',$mailsinfo);
@@ -53,27 +51,31 @@ class EmailController extends Controller
 
 	public function unseen()
 	{
-    	$hostname="{sanclemente.cl:993/imap/ssl/novalidate-cert}INBOX";
-	   	$username="mgonzalez";
-     	$password="maydelin16";
-    	$mailbox = new ImapMailbox($hostname, $username,$password);
-				
+		$mailbox = $this->conect();
+
 		$mailsIds = $mailbox->searchMailbox('UNSEEN');
 		
 		if(!$mailsIds) {
 			Flash::error('No hay mensajes sin leer!.');
-			return redirect()->route('emails/index');
+			return redirect()->route('emails.index');
 		    //die('No hay mensajes sin ver');
 		}
 		else{
 			$mailsinfo = $mailbox->getMailsInfo($mailsIds);
-
+			$mailsinfo=array_reverse($mailsinfo);
 			return view('emails.unseen')
 	    			->with('mailsinfo',$mailsinfo);
 		}
-
-
 	}
-    
+
+	public function show($mailId)
+	{
+		$mailbox = $this->conect();
+		$mail = $mailbox->getMail($mailId);
+
+		return view('emails.show')
+				->with('mailId',$mailId)
+				->with('mail',$mail);
+	}
 
 }

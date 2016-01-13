@@ -62,18 +62,23 @@ Route::group(['middleware' => 'web'], function () {
 
     
     Route::get('emails/index', [
-        'as' => 'emails/index',
+        'as' => 'emails.index',
         'uses' => 'EmailController@index'
     ]);
 
     Route::get('emails/mails', [
-        'as' => 'emails/mails',
+        'as' => 'emails.mails',
         'uses' => 'EmailController@mails'
     ]);
 
     Route::get('emails/unseen', [
-        'as' => 'emails/unseen',
+        'as' => 'emails.unseen',
         'uses' => 'EmailController@unseen'
+    ]);
+
+    Route::get('emails/{id}/show', [
+        'as' => 'emails.show',
+        'uses' => 'EmailController@show',
     ]);
 
     Route::resource('sistemas', 'SistemaController');

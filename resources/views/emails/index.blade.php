@@ -22,7 +22,7 @@
             <a class="btn btn-primary" style="margin-top: 25px" href="{{ URL::to('emails/mails') }}">Bandeja de entrada {{$mailboxmsginfo->Nmsgs}} <span class="glyphicon glyphicon-inbox"></span></a>
         </div>
         <div class="row">
-            <a class="btn btn-primary" style="margin-top: 25px" href="{{ URL::to('emails/unseen') }}">No vistos {{$mailboxmsginfo->Unread}} </a>
+            <a class="btn btn-primary" style="margin-top: 25px" href="{{ URL::to('emails/unseen') }}">No vistos {{$mailboxmsginfo->Unread}} <span class="glyphicon glyphicon-envelope"></span></a></a>
         </div>
 
         <div class="row">

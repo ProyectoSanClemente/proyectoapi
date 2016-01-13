@@ -31,11 +31,6 @@ Route::group(['middleware' => ['web']], function () {
 });
 
 
-
-Route::get('formulario', 'StoragenoticesController@index');
-
-
-
 Route::group(['middleware' => 'web'], function () {
 
     Route::auth();
@@ -54,9 +49,6 @@ Route::group(['middleware' => 'web'], function () {
         'uses' => 'NoticeController@destroy',
     ]);
 
-    Route::get('contacto', array('uses' => 'ContactController@contacto'));
-
-    
     Route::resource('cuentas', 'CuentaController');
 
     Route::get('cuentas/{id}/create', [
@@ -68,9 +60,21 @@ Route::group(['middleware' => 'web'], function () {
         'uses' => 'CuentaController@destroy',
     ]);
 
-    Route::get('emails/mails', ['uses' => 'EmailController@mails']);
+    
+    Route::get('emails/index', [
+        'as' => 'emails/index',
+        'uses' => 'EmailController@index'
+    ]);
 
-    Route::get('emails/index', ['uses' => 'EmailController@index']);    
+    Route::get('emails/mails', [
+        'as' => 'emails/mails',
+        'uses' => 'EmailController@mails'
+    ]);
+
+    Route::get('emails/unseen', [
+        'as' => 'emails/unseen',
+        'uses' => 'EmailController@unseen'
+    ]);
 
     Route::resource('sistemas', 'SistemaController');
 

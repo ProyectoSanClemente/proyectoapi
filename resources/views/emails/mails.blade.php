@@ -19,7 +19,7 @@
 			{{"imap_mailboxmsginfo() failed: " .imap_last_error()}}
 		@endif
 	</div> {{-- End div row --}}
-
-	@include('emails.table')
+		@include('emails.table')
+	</div>
 </div> {{-- End container --}}
 @endsection

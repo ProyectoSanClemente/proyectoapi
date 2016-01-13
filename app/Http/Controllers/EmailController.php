@@ -10,10 +10,12 @@ use PhpImap\Mailbox as ImapMailbox;
 use PhpImap\IncomingMail;
 use PhpImap\IncomingMailAttachment;
 use Flash;
+use HTML;
 
 
 class EmailController extends Controller
 {
+
 
     private function conect(){
     	$hostname="{sanclemente.cl:993/imap/ssl/novalidate-cert}INBOX";
@@ -76,6 +78,19 @@ class EmailController extends Controller
 		return view('emails.show')
 				->with('mailId',$mailId)
 				->with('mail',$mail);
+	}
+
+	public function markMailAsUnread($mailId)
+	{
+		$mailbox = $this->conect();
+		$leido=$mailbox->markMailAsUnread($mailId);
+		if($leido)
+			Flash::success('Correo Marcado como no leido');
+		else
+			Flash::error('El correo no se pudo marcar como no leido');
+		
+		return redirect()->back();
+
 	}
 
 }

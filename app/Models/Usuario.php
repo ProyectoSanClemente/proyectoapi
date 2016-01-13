@@ -57,7 +57,7 @@ class Usuario extends Model
 
     public function cuenta()
     {
-        return $this->hasOne('Cuenta','user_id');
+        return $this->hasOne('Cuenta','usuario_id');
     }
 
 }

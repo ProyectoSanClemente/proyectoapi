@@ -31,11 +31,6 @@ Route::group(['middleware' => ['web']], function () {
 });
 
 
-
-Route::get('formulario', 'StoragenoticesController@index');
-
-
-
 Route::group(['middleware' => 'web'], function () {
 
     Route::auth();
@@ -54,15 +49,49 @@ Route::group(['middleware' => 'web'], function () {
         'uses' => 'NoticeController@destroy',
     ]);
 
-    Route::get('contacto', array('uses' => 'ContactController@contacto'));
-
-    
     Route::resource('cuentas', 'CuentaController');
+
+    Route::get('cuentas/{id}/create', [
+         'as' => 'cuentas.create',
+         'uses' => 'CuentaController@create']);
 
     Route::get('cuentas/{id}/delete', [
         'as' => 'cuentas.delete',
         'uses' => 'CuentaController@destroy',
     ]);
 
+    
+    Route::get('emails/index', [
+        'as' => 'emails.index',
+        'uses' => 'EmailController@index'
+    ]);
+
+    Route::get('emails/mails', [
+        'as' => 'emails.mails',
+        'uses' => 'EmailController@mails'
+    ]);
+
+    Route::get('emails/unseen', [
+        'as' => 'emails.unseen',
+        'uses' => 'EmailController@unseen'
+    ]);
+
+    Route::get('emails/{id}/show', [
+        'as' => 'emails.show',
+        'uses' => 'EmailController@show',
+    ]);
+
+    Route::get('emails/{id}/markMailAsUnread', [
+        'as' => 'emails.markMailAsUnread',
+        'uses' => 'EmailController@markMailAsUnread',
+    ]);
+
+    Route::resource('sistemas', 'SistemaController');
+
+    Route::get('sistemas/{id}/delete', [
+        'as' => 'sistemas.delete',
+        'uses' => 'SistemaController@destroy',
+    ]);
 
 });
+

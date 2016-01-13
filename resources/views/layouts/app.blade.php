@@ -5,28 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>Intranet</title>
 
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" >
     <!-- Fonts -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
 
     <!-- Styles -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
-
-    <style>
-        body {
-            font-family: 'Lato';
-        }
-
-        .fa-btn {
-            margin-right: 6px;
-        }
-    </style>
+    {{HTML::style('css/bootstrap.min.css')}}
+    {{HTML::style('css/navbar-fixed-top.css')}}
+    
 </head>
 <body id="app-layout">
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default  navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <!-- Collapsed Hamburger -->
@@ -62,10 +55,13 @@
                     <li> {{ HTML::link('usuarios', 'Contenido')}}</li><li> {{ HTML::link('usuarios', 'Flujo de Trabajo')}}</li>
                 </ul>
                 <ul class="nav navbar-nav">
-                    <li> {{ HTML::link('usuarios', 'Administrador')}}</li> 
+                    <li> {{ HTML::link('emails/index', 'Correo')}}</li>
                 </ul>
                 <ul class="nav navbar-nav">
-                    <li> {{ HTML::link('usuarios', 'Reportes')}}</li>
+                    <li> {{ HTML::link('usuarios', 'Administrador')}}</li> 
+                </ul>                
+                <ul class="nav navbar-nav">
+                    <li> {{ HTML::link('sistemas', 'Sistemas')}}</li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -92,8 +88,6 @@
 
 
                         </li>
-
-
                     @endif
                 </ul>
             </div>

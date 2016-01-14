@@ -2,18 +2,15 @@
 
 use Illuminate\Database\Eloquent\Model as Model;
 
-class Cuenta extends Model
+class Impresora extends Model
 {
     
-	public $table = "cuentas";
+	public $table = "impresoras";
     
 
 	public $fillable = [
-	    "usuario_id",
-		"zimbra_id",
-		"zimbra_pass",
-		"nube_id",
-		"nube_pass"
+	    "id_usuario",
+		"modelo_impresora"
 	];
 
     /**
@@ -22,17 +19,16 @@ class Cuenta extends Model
      * @var array
      */
     protected $casts = [
-        "usuario_id" => "integer",
-		"zimbra_id" => "string",
-		"zimbra_pass" => "string",
-		"nube_id" => "string",
-		"nube_pass" => "string"
+        "id_usuario" => "integer",
+		"modelo_impresora" => "string"
     ];
 
 	public static $rules = [
-	    
+	    "id_usuario" => "required",
+		"modelo_impresora" => "required"
 	];
-	public function usuario()
+
+	 public function usuario()
     {
         return $this->belongsTo('Usuario','id');
     }

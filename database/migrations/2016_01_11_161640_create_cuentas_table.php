@@ -22,9 +22,6 @@ class CreateCuentasTable extends Migration
 			$table->string('nube_id');
 			$table->string('nube_pass');
 			$table->timestamps();
-			$table->foreign('usuario_id')
-      		->references('id')->on('usuarios')
-      		->onDelete('cascade');
 		});
 	}
 

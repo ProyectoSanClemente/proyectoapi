@@ -101,7 +101,8 @@ class CuentaController extends AppBaseController
 			return redirect(route('cuentas.index'));
 		}
 
-		return view('cuentas.edit')->with('cuenta', $cuenta);
+		return view('cuentas.edit')->with('cuenta', $cuenta)
+									->with('id_usuario',$id);
 	}
 
 	/**

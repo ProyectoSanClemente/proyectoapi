@@ -60,4 +60,9 @@ class Usuario extends Model
         return $this->hasOne('Cuenta','usuario_id');
     }
 
+        public function impresora()
+    {
+        return $this->hasOne('Impresora','usuario_id');
+    }
+
 }

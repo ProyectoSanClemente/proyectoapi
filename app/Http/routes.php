@@ -93,5 +93,17 @@ Route::group(['middleware' => 'web'], function () {
         'uses' => 'SistemaController@destroy',
     ]);
 
+    Route::resource('impresoras', 'ImpresoraController');
+
+    Route::get('impresoras/{id}/create', [
+         'as' => 'impresoras.create',
+         'uses' => 'ImpresoraController@create']);
+
+    Route::get('impresoras/{id}/delete', [
+    'as' => 'impresoras.delete',
+    'uses' => 'ImpresoraController@destroy',
+]);
+
+
 });
 

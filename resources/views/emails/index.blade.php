@@ -1,26 +1,20 @@
 @extends('layouts.app')
-
 @section('content')
-
-    <div class="container">
-
-        @include('flash::message')
-        
-        <div class="row">
-            <h1 class="pull-left">Correos</h1>
-        </div>
-        <div class="row">
-            <h3>Estado</h3>
-            @if ($mailboxmsginfo) 
-                {{"Fecha:".$mailboxmsginfo->Date }}<br>
-                {{"Total Mensajes: $mailboxmsginfo->Nmsgs | Sin Leer: $mailboxmsginfo->Unread | Recientes: $mailboxmsginfo->Recent | Eliminados: $mailboxmsginfo->Deleted"}}<br>
-            @else
-                {{"imap_mailboxmsginfo() failed: " .imap_last_error()}}
-            @endif
-        </div> {{-- End div row --}}
-        
+<!-- Content -->
+<div class="container">
+ 
+        <h1>Buzon de Entrada</h1><hr>
+   
+    @include('flash::message')
+    <div class="row">
+      <div class="col-lg-3">  
         @include('emails.sidebar')
-        
+      </div>   
+        <div class="col-lg-9">          
+            @include('emails.table')
+        </div>
     </div>
+</div>
 @endsection
-        
+
+

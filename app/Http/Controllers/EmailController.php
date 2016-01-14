@@ -29,14 +29,6 @@ class EmailController extends Controller
     {
 		$mailbox = $this->conect();
 		$mailboxmsginfo = $mailbox->getMailboxInfo();
-
-		return view('emails.index')
-			->with('mailboxmsginfo',$mailboxmsginfo);		
-    }
-
-    public function mails(){
-		$mailbox = $this->conect();
-		$mailboxmsginfo = $mailbox->getMailboxInfo();
 		$mailsIds = $mailbox->searchMailbox('ALL');
 
 		if(!$mailsIds) {
@@ -45,16 +37,16 @@ class EmailController extends Controller
 		else{
 			$mailsinfo = $mailbox->getMailsInfo($mailsIds);
 			$mailsinfo=array_reverse($mailsinfo);
-			return view('emails.mails')
+			return view('emails.index')
 	    			->with('mailboxmsginfo',$mailboxmsginfo)
 	    			->with('mailsinfo',$mailsinfo);
-		}
-	}
+		}	
+    }
 
 	public function unseen()
 	{
 		$mailbox = $this->conect();
-
+		$mailboxmsginfo = $mailbox->getMailboxInfo();
 		$mailsIds = $mailbox->searchMailbox('UNSEEN');
 		
 		if(!$mailsIds) {
@@ -66,6 +58,7 @@ class EmailController extends Controller
 			$mailsinfo = $mailbox->getMailsInfo($mailsIds);
 			$mailsinfo=array_reverse($mailsinfo);
 			return view('emails.unseen')
+					->with('mailboxmsginfo',$mailboxmsginfo)
 	    			->with('mailsinfo',$mailsinfo);
 		}
 	}
@@ -74,23 +67,37 @@ class EmailController extends Controller
 	{
 		$mailbox = $this->conect();
 		$mail = $mailbox->getMail($mailId);
-
+		$mailboxmsginfo = $mailbox->getMailboxInfo();
 		return view('emails.show')
 				->with('mailId',$mailId)
+				->with('mailboxmsginfo',$mailboxmsginfo)
 				->with('mail',$mail);
 	}
 
 	public function markMailAsUnread($mailId)
 	{
 		$mailbox = $this->conect();
-		$leido=$mailbox->markMailAsUnread($mailId);
-		if($leido)
-			Flash::success('Correo Marcado como no leido');
+		$unread=$mailbox->markMailAsUnread($mailId);
+		if($unread)
+			Flash::success('Correo Marcado como No Leído');
 		else
-			Flash::error('El correo no se pudo marcar como no leido');
+			Flash::error('El correo no se pudo marcar como no Leído');
+		
+		return redirect()->back();
+	}
+
+	public function markMailAsRead($mailId)
+	{
+		$mailbox = $this->conect();
+		$Leído=$mailbox->markMailAsRead($mailId);
+		if($Leído)
+			Flash::success('Correo Marcado como Leído');
+		else
+			Flash::error('El correo no se pudo marcar como Leído');
 		
 		return redirect()->back();
 
 	}
+
 
 }

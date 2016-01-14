@@ -1,9 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
+
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+
+    <div class="col-lg-3">  
+        @include('emails.sidebar')
+      </div>
+       <div class="col-lg-9">     
 			<section class="panel panel-default mail-container">
 				<div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Vista correo</strong></div>
 				<div class="panel-body">
@@ -33,7 +39,6 @@
                                     	{{$element}}
                                     @endforeach             	
                                     <li><i class="glyphicon glyphicon-bookmark"></i><a href="http://localhost:8080/Utilities/xmlKnowledgeBase23/index.asp?displayCategory=yes&id=Gateway">Gateway</a></li>
-                                    <li><i class="fa fa-star"></i>33 views </li>
                                 </ul>
 							</div>
 						</div>

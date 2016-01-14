@@ -61,14 +61,9 @@ Route::group(['middleware' => 'web'], function () {
     ]);
 
     
-    Route::get('emails/index', [
+   Route::get('emails/index', [
         'as' => 'emails.index',
         'uses' => 'EmailController@index'
-    ]);
-
-    Route::get('emails/mails', [
-        'as' => 'emails.mails',
-        'uses' => 'EmailController@mails'
     ]);
 
     Route::get('emails/unseen', [
@@ -79,6 +74,12 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('emails/{id}/show', [
         'as' => 'emails.show',
         'uses' => 'EmailController@show',
+    ]);
+
+    
+    Route::get('emails/{id}/markMailAsRead', [
+        'as' => 'emails.markMailAsRead',
+        'uses' => 'EmailController@markMailAsRead',
     ]);
 
     Route::get('emails/{id}/markMailAsUnread', [

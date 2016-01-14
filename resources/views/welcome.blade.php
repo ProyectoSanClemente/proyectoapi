@@ -14,5 +14,4 @@
         </div>
     </div>
 </div>
-        {{--setcookie('nombreUsuario',getenv('username'), time() + 4800);--}}
 @endsection

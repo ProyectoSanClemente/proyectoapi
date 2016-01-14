@@ -31,6 +31,11 @@ Route::group(['middleware' => ['web']], function () {
 });
 
 
+
+Route::get('formulario', 'StoragenoticesController@index');
+
+
+
 Route::group(['middleware' => 'web'], function () {
 
     Route::auth();
@@ -49,6 +54,9 @@ Route::group(['middleware' => 'web'], function () {
         'uses' => 'NoticeController@destroy',
     ]);
 
+    Route::get('contacto', array('uses' => 'ContactController@contacto'));
+
+    
     Route::resource('cuentas', 'CuentaController');
 
     Route::get('cuentas/{id}/create', [
@@ -60,31 +68,21 @@ Route::group(['middleware' => 'web'], function () {
         'uses' => 'CuentaController@destroy',
     ]);
 
-    
-    Route::get('emails/index', [
-        'as' => 'emails.index',
-        'uses' => 'EmailController@index'
-    ]);
+    Route::resource('impresoras', 'ImpresoraController');
 
-    Route::get('emails/mails', [
-        'as' => 'emails.mails',
-        'uses' => 'EmailController@mails'
-    ]);
+    Route::get('impresoras/{id}/create', [
+         'as' => 'impresoras.create',
+         'uses' => 'ImpresoraController@create']);
 
-    Route::get('emails/unseen', [
-        'as' => 'emails.unseen',
-        'uses' => 'EmailController@unseen'
-    ]);
+    Route::get('impresoras/{id}/delete', [
+    'as' => 'impresoras.delete',
+    'uses' => 'ImpresoraController@destroy',
+]);
 
-    Route::get('emails/{id}/show', [
-        'as' => 'emails.show',
-        'uses' => 'EmailController@show',
-    ]);
 
-    Route::get('emails/{id}/markMailAsUnread', [
-        'as' => 'emails.markMailAsUnread',
-        'uses' => 'EmailController@markMailAsUnread',
-    ]);
+    Route::get('emails/mails', ['uses' => 'EmailController@mails']);
+
+    Route::get('emails/index', ['uses' => 'EmailController@index']);    
 
     Route::resource('sistemas', 'SistemaController');
 
@@ -94,4 +92,3 @@ Route::group(['middleware' => 'web'], function () {
     ]);
 
 });
-

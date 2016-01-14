@@ -68,6 +68,18 @@ Route::group(['middleware' => 'web'], function () {
         'uses' => 'CuentaController@destroy',
     ]);
 
+    Route::resource('impresoras', 'ImpresoraController');
+
+    Route::get('impresoras/{id}/create', [
+         'as' => 'impresoras.create',
+         'uses' => 'ImpresoraController@create']);
+
+    Route::get('impresoras/{id}/delete', [
+    'as' => 'impresoras.delete',
+    'uses' => 'ImpresoraController@destroy',
+]);
+
+
     Route::get('emails/mails', ['uses' => 'EmailController@mails']);
 
     Route::get('emails/index', ['uses' => 'EmailController@index']);    
@@ -80,4 +92,3 @@ Route::group(['middleware' => 'web'], function () {
     ]);
 
 });
-

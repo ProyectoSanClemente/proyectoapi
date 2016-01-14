@@ -5,19 +5,22 @@
     <div class="container">
 
         @include('flash::message')
-
         
         <div class="row">
             <h1 class="pull-left">Correos</h1>
-            </div>
-           <div class="row">
-             <a class="btn btn-primary" style="margin-top: 25px" href="{{ URL::to('emails/mails') }}">  Bandeja de entrada<span class="glyphicon"></span></a>
         </div>
-
         <div class="row">
-
-        </div>
-
-
+            <h3>Estado</h3>
+            @if ($mailboxmsginfo) 
+                {{"Fecha:".$mailboxmsginfo->Date }}<br>
+                {{"Total Mensajes: $mailboxmsginfo->Nmsgs | Sin Leer: $mailboxmsginfo->Unread | Recientes: $mailboxmsginfo->Recent | Eliminados: $mailboxmsginfo->Deleted"}}<br>
+            @else
+                {{"imap_mailboxmsginfo() failed: " .imap_last_error()}}
+            @endif
+        </div> {{-- End div row --}}
+        
+        @include('emails.sidebar')
+        
     </div>
 @endsection
+        

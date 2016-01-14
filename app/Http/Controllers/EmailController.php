@@ -6,38 +6,91 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use PhpImap\Mailbox as ImapMailbox;
+use PhpImap\IncomingMail;
+use PhpImap\IncomingMailAttachment;
 use Flash;
+use HTML;
+
 
 class EmailController extends Controller
 {
+
+
+    private function conect(){
+    	$hostname="{sanclemente.cl:993/imap/ssl/novalidate-cert}INBOX";
+	   	$username="prueba";
+     	$password="Prueba2015";
+    	$mailbox = new ImapMailbox($hostname, $username,$password);			
+    	return $mailbox;
+    }
+
+	public function index()
+    {
+		$mailbox = $this->conect();
+		$mailboxmsginfo = $mailbox->getMailboxInfo();
+
+		return view('emails.index')
+			->with('mailboxmsginfo',$mailboxmsginfo);		
+    }
+
     public function mails(){
-    		$hostname="{sanclemente.cl:993/imap/ssl/novalidate-cert}INBOX";
-	    	$username="mgonzalez";
-	    	$password="maydelin16";
-			$inbox = imap_open ($hostname,$username,$password) or die("can't connect: " . imap_last_error());
-			  	
-	    	$checar = imap_check($inbox);
-			//$lista = imap_getmailboxes($inbox, "{imap.uci.cu:993/imap/ssl}", "*");
+		$mailbox = $this->conect();
+		$mailboxmsginfo = $mailbox->getMailboxInfo();
+		$mailsIds = $mailbox->searchMailbox('ALL');
 
-			// Detalles generales de todos los mensajes del usuario.
-			$resultados = imap_fetch_overview($inbox,"1:{$checar->Nmsgs}",0);
-			// Ordenamos los mensajes arriba los más nuevos y abajo los más antiguos
-
-			//Información del mailbox
-			$check = imap_mailboxmsginfo($inbox);
-
-			krsort($resultados);		
-			Flash::success('Bien!.');
+		if(!$mailsIds) {
+		    die('La bandeja de entrada esta vacia');
+		}
+		else{
+			$mailsinfo = $mailbox->getMailsInfo($mailsIds);
+			$mailsinfo=array_reverse($mailsinfo);
 			return view('emails.mails')
-		    		->with('check',$check)
-		    		->with('inbox',$inbox)
-		    		->with('resultados',$resultados);
-
+	    			->with('mailboxmsginfo',$mailboxmsginfo)
+	    			->with('mailsinfo',$mailsinfo);
+		}
 	}
 
-    public function index()
-    {
-    	return view('emails.index');
-    }
+	public function unseen()
+	{
+		$mailbox = $this->conect();
+
+		$mailsIds = $mailbox->searchMailbox('UNSEEN');
+		
+		if(!$mailsIds) {
+			Flash::error('No hay mensajes sin leer!.');
+			return redirect()->route('emails.index');
+		    //die('No hay mensajes sin ver');
+		}
+		else{
+			$mailsinfo = $mailbox->getMailsInfo($mailsIds);
+			$mailsinfo=array_reverse($mailsinfo);
+			return view('emails.unseen')
+	    			->with('mailsinfo',$mailsinfo);
+		}
+	}
+
+	public function show($mailId)
+	{
+		$mailbox = $this->conect();
+		$mail = $mailbox->getMail($mailId);
+
+		return view('emails.show')
+				->with('mailId',$mailId)
+				->with('mail',$mail);
+	}
+
+	public function markMailAsUnread($mailId)
+	{
+		$mailbox = $this->conect();
+		$leido=$mailbox->markMailAsUnread($mailId);
+		if($leido)
+			Flash::success('Correo Marcado como no leido');
+		else
+			Flash::error('El correo no se pudo marcar como no leido');
+		
+		return redirect()->back();
+
+	}
 
 }

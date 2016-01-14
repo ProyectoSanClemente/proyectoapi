@@ -8,7 +8,7 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                        Pantalla de Inicio
+                        Bienvenido Usuario Windows: {{getenv("username")}}
                 </div>
             </div>
         </div>

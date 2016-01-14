@@ -9,7 +9,7 @@ class Cuenta extends Model
     
 
 	public $fillable = [
-	    "usuario_id",
+		"id",
 		"zimbra_id",
 		"zimbra_pass",
 		"nube_id",
@@ -22,7 +22,7 @@ class Cuenta extends Model
      * @var array
      */
     protected $casts = [
-        "usuario_id" => "integer",
+    	"id" => "integer",
 		"zimbra_id" => "string",
 		"zimbra_pass" => "string",
 		"nube_id" => "string",
@@ -34,7 +34,7 @@ class Cuenta extends Model
 	];
 	public function usuario()
     {
-        return $this->belongsTo('Usuario','id');
+        return $this->belongsTo('Usuario','rut');
     }
 
 }

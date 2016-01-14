@@ -1,7 +1,7 @@
 <!-- Id Usuario Field -->
 <div class="form-group">
     {!! Form::label('id_usuario', 'Id Usuario:') !!}
-    <p>{!! $impresora->id_usuario !!}</p>
+    <p>{!! $impresora->id!!}</p>
 </div>
 
 <!-- Modelo Impresora Field -->

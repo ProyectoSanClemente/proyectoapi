@@ -8,12 +8,14 @@ use Flash;
 use Mitul\Controller\AppBaseController as AppBaseController;
 use Response;
 use App\Libraries\Repositories\UsuarioRepository;
+use App\Models\Usuario;
 
 class CuentaController extends AppBaseController
 {
 
 	/** @var  CuentaRepository */
 	private $cuentaRepository;
+	private $usuarioRepository;
 
 	function __construct(CuentaRepository $cuentaRepo)
 	{
@@ -28,7 +30,7 @@ class CuentaController extends AppBaseController
 	public function index()
 	{
 		$cuentas = $this->cuentaRepository->paginate(10);
-
+		/*$comments = $this->usuarioRepository->find(1)->where('id', '=', $cuentas['usuario_id'])->first();*/
 		return view('cuentas.index')
 			->with('cuentas', $cuentas);
 	}
@@ -41,7 +43,7 @@ class CuentaController extends AppBaseController
 	public function create($id)
 	{
 
-		return view('cuentas.create')->with('id_usuario',$id);
+		return view('cuentas.create')->with('id',$id);
 	}
 
 	/**
@@ -102,7 +104,7 @@ class CuentaController extends AppBaseController
 		}
 
 		return view('cuentas.edit')->with('cuenta', $cuenta)
-									->with('id_usuario',$id);
+									->with('id',$id);
 	}
 
 	/**

@@ -41,7 +41,7 @@ class ImpresoraController extends AppBaseController
 	 */
 	public function create($id)
 	{	
-		return view('impresoras.create')->with('id_usuario',$id);
+		return view('impresoras.create')->with('id',$id);
 	}
 
 	/**
@@ -102,7 +102,7 @@ class ImpresoraController extends AppBaseController
 		}
 
 		return view('impresoras.edit')->with('impresora', $impresora)
-										->with('id_usuario',$id);
+										->with('id',$id);
 	}
 
 	/**

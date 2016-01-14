@@ -1,7 +1,7 @@
 <!-- Id Usuario Field -->
 <div class="form-group col-sm-6 col-lg-4">
-    {!! Form::label('id_usuario', 'Modelo Impresora:') !!}
-	{!! Form::text('id_usuario',$id_usuario, ['class' => 'form-control','readonly' => 'readonly']) !!}
+    {!! Form::label('id', 'Id:') !!}
+	{!! Form::text('id',$id, ['class' => 'form-control','readonly' => 'readonly']) !!}
 </div>
 <!-- Modelo Impresora Field -->
 <div class="form-group col-sm-6 col-lg-4">

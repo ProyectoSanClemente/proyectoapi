@@ -16,7 +16,6 @@ class CreateCuentasTable extends Migration
 		Schema::create('cuentas', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('usuario_id');
 			$table->string('zimbra_id');
 			$table->string('zimbra_pass');
 			$table->string('nube_id');

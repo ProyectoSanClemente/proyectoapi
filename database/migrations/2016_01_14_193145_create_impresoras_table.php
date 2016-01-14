@@ -5,7 +5,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateImpresorasTable extends Migration
 {
-
     /**
      * Run the migrations.
      *
@@ -16,7 +15,6 @@ class CreateImpresorasTable extends Migration
         Schema::create('impresoras', function(Blueprint $table)
         {
             $table->increments('id');
-            $table->integer('id_usuario');
             $table->string('modelo_impresora');
             $table->timestamps();
         });
@@ -31,5 +29,4 @@ class CreateImpresorasTable extends Migration
     {
         Schema::drop('impresoras');
     }
-
 }

@@ -7,7 +7,7 @@
     <tbody>
     @foreach($impresoras as $impresora)
         <tr>
-            <td>{!! $impresora->id_usuario !!}</td>
+            <td>{!! $impresora->id!!}</td>
 			<td>{!! $impresora->modelo_impresora !!}</td>
             <td>
                 <a href="{!! route('impresoras.edit', [$impresora->id]) !!}"><i class="glyphicon glyphicon-edit"></i></a>

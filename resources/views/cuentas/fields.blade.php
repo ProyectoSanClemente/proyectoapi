@@ -1,7 +1,7 @@
 
 <div class="form-group col-sm-6 col-lg-4">
-    {!! Form::label('usuario_id', 'Usuario Id:') !!}
-	{!! Form::text('usuario_id',$id_usuario,['class' => 'form-control', 'readonly' => 'readonly']) !!}
+    {!! Form::label('id', 'Usuario Id:') !!}
+	{!! Form::text('id',$id,['class' => 'form-control', 'readonly' => 'readonly']) !!}
 </div>
 
 <div class="form-group col-sm-6 col-lg-4">

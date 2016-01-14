@@ -57,12 +57,12 @@ class Usuario extends Model
 
     public function cuenta()
     {
-        return $this->hasOne('Cuenta','usuario_id');
+        return $this->hasOne('Cuenta','id');
     }
 
         public function impresora()
     {
-        return $this->hasOne('Impresora','usuario_id');
+        return $this->hasMany('Impresora','id');
     }
 
 }

@@ -9,7 +9,7 @@ class Impresora extends Model
     
 
 	public $fillable = [
-	    "id_usuario",
+        "id",
 		"modelo_impresora"
 	];
 
@@ -19,18 +19,18 @@ class Impresora extends Model
      * @var array
      */
     protected $casts = [
-        "id_usuario" => "integer",
+        "id" => "integer",
 		"modelo_impresora" => "string"
     ];
 
 	public static $rules = [
-	    "id_usuario" => "required",
 		"modelo_impresora" => "required"
 	];
 
 	 public function usuario()
     {
-        return $this->belongsTo('Usuario','id');
+        return $this->belongsTo('Usuario','rut');
     }
 
 }
+/*$impresora = Impresora::find(1);*/

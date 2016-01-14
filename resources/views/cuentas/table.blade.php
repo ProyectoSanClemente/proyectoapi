@@ -10,7 +10,7 @@
     <tbody>
     @foreach($cuentas as $cuenta)
         <tr>
-            <td>{!! $cuenta->usuario_id !!}</td>
+            <td>{!! $cuenta->id!!}</td>
 			<td>{!! $cuenta->zimbra_id !!}</td>
 			<td>{!! $cuenta->zimbra_pass !!}</td>
 			<td>{!! $cuenta->nube_id !!}</td>

@@ -1,7 +1,7 @@
 <!-- Usuario Id Field -->
 <div class="form-group">
     {!! Form::label('usuario_id', 'Usuario Id:') !!}
-    <p>{!! $cuenta->usuario_id !!}</p>
+    <p>{!! $cuenta->id !!}</p>
 </div>
 
 <!-- Zimbra Id Field -->

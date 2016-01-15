@@ -1,4 +1,10 @@
-<table class="table">
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#correos').DataTable();
+    } );
+</script>
+
+<table id="correos" class="table">
     <thead>
         <th>Remitente</th>
         <th>Asunto</th>

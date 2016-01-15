@@ -13,10 +13,16 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
 
-    <!-- Styles -->
+        <!-- Styles -->
     {{HTML::style('css/bootstrap.min.css')}}
     {{HTML::style('css/navbar-fixed-top.css')}}
+    {{HTML::style('css/jquery.dataTables.css')}}      
     
+        <!-- Javascipts -->
+    {{ HTML::script('js/jquery.min.js')}}
+    {{ HTML::script('js/bootstrap.min.js')}}
+    {{ HTML::script('js/jquery.dataTables.js')}}
+
 </head>
 <body id="app-layout">
     <nav class="navbar navbar-default  navbar-fixed-top">
@@ -94,12 +100,10 @@
         </div>
     </nav>
     @yield('content')
+    
 
-
-    <!-- JavaScripts -->
-
-    {{ HTML::script('js/jquery.min.js')}}
-    {{ HTML::script('js/bootstrap.min.js')}}
-    {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 </body>
 </html>
+
+
+

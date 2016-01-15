@@ -2,7 +2,6 @@
 @section('content')
 <!-- Content -->
 
-
 <div class="container">
 	<div class="row">
         <h1 class="pull-left">No vistos</h1>

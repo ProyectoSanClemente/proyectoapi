@@ -75,7 +75,6 @@ Route::group(['middleware' => 'web'], function () {
         'as' => 'emails.show',
         'uses' => 'EmailController@show',
     ]);
-
     
     Route::get('emails/{id}/markMailAsRead', [
         'as' => 'emails.markMailAsRead',

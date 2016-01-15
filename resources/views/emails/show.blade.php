@@ -18,7 +18,7 @@
 							<div class="pull-right">
 								<a href="#/mail/compose" class="btn btn-sm btn-default">Responder <i class="fa fa-mail-reply"></i></a>
 								<a href="javascript:;" class="btn btn-sm btn-default"><i class="fa fa-print"></i></a>
-								<a href="javascript:;" class="btn btn-sm btn-default"><i class="fa fa-trash-o"></i></a>
+								<a href="javascript:;" onclick="window.print()" class="btn btn-sm btn-default"><i class="fa fa-trash-o"></i></a>
 							</div>
 						</div>
 					</div>
@@ -33,19 +33,20 @@
 						<div class="row">
 							<div class="col-md-12">
                                 <ul class="list-unstyled list-inline">
-                                    <li><i class="fa fa-calendar-o"></i>{{$mail->date}}</li>
-                                    <li><i class="fa fa-user"></i>{{$mail->fromName}}</li>
+                                    <li><i class="fa fa-calendar-o"></i>Fecha: {{$mail->date}}</li>
+                                    <li><i class="fa fa-user"></i>De: {{$mail->fromName}}</li>
+                                     <li><i class="fa fa-users">Para:</i>
                                     @foreach ($mail->to as $element)
                                     	{{$element}}
-                                    @endforeach             	
-                                    <li><i class="glyphicon glyphicon-bookmark"></i><a href="http://localhost:8080/Utilities/xmlKnowledgeBase23/index.asp?displayCategory=yes&id=Gateway">Gateway</a></li>
+                                    @endforeach
+                                    </li>                                    
                                 </ul>
 							</div>
 						</div>
 					</div>
                     
 					<div class="mail-content">
-						<p>{{$mail->textPlain}}</p>
+						<?php print(nl2br($mail->textPlain)) ?>
 						{{-- <p>{{$mail->textHtml}}</p> --}}
 					</div>
 					
@@ -75,16 +76,5 @@
 		</div>
 	</div>
 </div>
-			
-
-
-
-
-@endsection
-
-
-	
 		
-	</div>
-	</section>
-    
+@endsection

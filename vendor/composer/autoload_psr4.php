@@ -43,4 +43,6 @@ return array(
     'Carbon\\' => array($vendorDir . '/nesbot/carbon/src/Carbon'),
     'Bosnadev\\Repositories\\' => array($vendorDir . '/bosnadev/repositories/src'),
     'App\\' => array($baseDir . '/app'),
+    'Adldap\\Laravel\\' => array($vendorDir . '/adldap2/adldap2-laravel/src'),
+    'Adldap\\' => array($vendorDir . '/adldap2/adldap2/src'),
 );

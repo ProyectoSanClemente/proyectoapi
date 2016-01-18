@@ -4,9 +4,102 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "356feac28b52c7127b7dd23e7b623b69",
-    "content-hash": "f561c02c5818e0faf3cc2b25faec1560",
+    "hash": "eebfa457989a08c39269b7ceed616db4",
+    "content-hash": "0dc4165598d8403d8daa9e36c342de53",
     "packages": [
+        {
+            "name": "adldap2/adldap2",
+            "version": "v5.2.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Adldap2/Adldap2.git",
+                "reference": "baf1ca9981efb746f59a8f7aea7b93160d3401d3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Adldap2/Adldap2/zipball/baf1ca9981efb746f59a8f7aea7b93160d3401d3",
+                "reference": "baf1ca9981efb746f59a8f7aea7b93160d3401d3",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/collections": "1.3.*",
+                "ext-ldap": "*",
+                "php": ">=5.4.26"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*",
+                "phpunit/phpunit": "4.6.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Adldap\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-2.1"
+            ],
+            "authors": [
+                {
+                    "name": "Steve Bauman",
+                    "email": "steven_bauman@outlook.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A PHP LDAP Library for Active Directory Manipulation.",
+            "keywords": [
+                "active directory",
+                "ad",
+                "adLDAP",
+                "adldap2",
+                "directory",
+                "ldap",
+                "windows"
+            ],
+            "time": "2015-12-09 14:21:28"
+        },
+        {
+            "name": "adldap2/adldap2-laravel",
+            "version": "v1.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Adldap2/Adldap2-Laravel.git",
+                "reference": "7d671928c4274f4b18fe5ffff064445629693b9c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Adldap2/Adldap2-Laravel/zipball/7d671928c4274f4b18fe5ffff064445629693b9c",
+                "reference": "7d671928c4274f4b18fe5ffff064445629693b9c",
+                "shasum": ""
+            },
+            "require": {
+                "adldap2/adldap2": "5.2.*",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*",
+                "orchestra/testbench": "~3.2"
+            },
+            "type": "project",
+            "autoload": {
+                "psr-4": {
+                    "Adldap\\Laravel\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Adldap2 for Laravel 5.",
+            "keywords": [
+                "adLDAP",
+                "adldap2",
+                "laravel",
+                "ldap"
+            ],
+            "time": "2016-01-11 20:39:47"
+        },
         {
             "name": "bosnadev/repositories",
             "version": "dev-master",
@@ -432,7 +525,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/a3a86aa50ebfe180ac5943cce90a40262041bbdf",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/02e5b61baedbeb1832702d0feac3174e70c32c74",
                 "reference": "a3a86aa50ebfe180ac5943cce90a40262041bbdf",
                 "shasum": ""
             },

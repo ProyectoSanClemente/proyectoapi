@@ -57,13 +57,20 @@ class CuentaController extends AppBaseController
 	{
 		$input = $request->all();
 
-		$cuenta = $this->cuentaRepository->create($input);
+		try{
+			$cuenta = $this->cuentaRepository->create($input);
+			Flash::success('Cuenta saved successfully.');
+			return redirect(route('cuentas.index'));
 
-		Flash::success('Cuenta saved successfully.');
-
-		return redirect(route('cuentas.index'));
+		    } catch(QueryException $e) {
+        		if (preg_match('/Duplicate entry/',$e->getMessage())){
+            	return response([
+                'success' => false,
+                'message' => 'Role exists for that user'
+            	], 500);
+       			}
+			}
 	}
-
 	/**
 	 * Display the specified Cuenta.
 	 *

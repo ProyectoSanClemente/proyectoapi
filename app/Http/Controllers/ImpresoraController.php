@@ -156,4 +156,8 @@ class ImpresoraController extends AppBaseController
 
 		return redirect(route('impresoras.index'));
 	}
+	public function imprimir($id)
+	{
+		# code...
+	}
 }

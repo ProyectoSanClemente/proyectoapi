@@ -102,8 +102,11 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('impresoras/{id}/delete', [
     'as' => 'impresoras.delete',
-    'uses' => 'ImpresoraController@destroy',
-]);
+    'uses' => 'ImpresoraController@destroy']);
+
+    Route::get('impresoras/{id}/imprimir', [
+    'as' => 'impresoras.imprimir',
+    'uses' => 'ImpresoraController@imprimir']);
 
 
 });

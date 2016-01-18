@@ -16,6 +16,7 @@ class Mailbox {
 	protected $imapParams = array();
 	protected $serverEncoding;
 	protected $attachmentsDir;
+	protected $expungeOnDisconnect = true;
 
 	public function __construct($imapPath, $login, $password, $attachmentsDir = null, $serverEncoding = 'UTF-8') {
 		$this->imapPath = $imapPath;
@@ -72,8 +73,16 @@ class Mailbox {
 	protected function disconnect() {
 		$imapStream = $this->getImapStream(false);
 		if($imapStream && is_resource($imapStream)) {
-			imap_close($imapStream, CL_EXPUNGE);
+			imap_close($imapStream, $this->expungeOnDisconnect ? CL_EXPUNGE : 0);
 		}
+	}
+
+	/**
+	 * Sets 'expunge on disconnect' parameter
+	 * @param bool $isEnabled
+	 */
+	public function setExpungeOnDisconnect($isEnabled) {
+		$this->expungeOnDisconnect = $isEnabled;
 	}
 
 	/**
@@ -191,8 +200,20 @@ class Mailbox {
 		return imap_delete($this->getImapStream(), $mailId, FT_UID);
 	}
 
+	/**
+	 * Moves mails listed in mailId into new mailbox
+	 * @return bool
+	 */
 	public function moveMail($mailId, $mailBox) {
 		return imap_mail_move($this->getImapStream(), $mailId, $mailBox, CP_UID) && $this->expungeDeletedMails();
+	}
+	
+	/**
+	 * Copys mails listed in mailId into new mailbox
+	 * @return bool
+	 */
+	public function copyMail($mailId, $mailBox) {
+		return imap_mail_copy($this->getImapStream(), $mailId, $mailBox, CP_UID) && $this->expungeDeletedMails();
 	}
 
 	/**
@@ -396,6 +417,22 @@ class Mailbox {
 		}
 		return $quota;
 	}
+	
+	/**
+	 * Get raw mail data
+	 *
+	 * @param $msgId
+	 * @param bool $markAsSeen
+	 * @return mixed
+	 */
+	public function getRawMail($msgId, $markAsSeen = true){
+		$options = FT_UID;
+        	if(!$markAsSeen) {
+            		$options |= FT_PEEK;
+        	}
+        	
+		return imap_fetchbody($this->getImapStream(), $msgId, '', $options);
+	}
 
     /**
      * Get mail data
@@ -513,6 +550,7 @@ class Mailbox {
 			$attachment = new IncomingMailAttachment();
 			$attachment->id = $attachmentId;
 			$attachment->name = $fileName;
+			$attachment->disposition = (isset($partStructure->disposition) ? $partStructure->disposition : null);
 			if($this->attachmentsDir) {
 				$replace = array(
 					'/\s/' => '_',

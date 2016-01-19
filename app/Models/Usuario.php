@@ -10,8 +10,10 @@ class Usuario extends Model
 
 	public $fillable = [
 	    "rut",
+		"accountname",
 		"nombre",
 		"apellido",
+		"displayname",
 		"email",
 		"password",
 		"imagen"
@@ -24,7 +26,9 @@ class Usuario extends Model
      */
     protected $casts = [
         "rut" => "integer",
+        "accountname"=> "string",
 		"nombre" => "string",
+		"displayname"=> "string",
 		"apellido" => "string",
 		"email" => "string",
 		"password" => "string"
@@ -32,11 +36,11 @@ class Usuario extends Model
 
 	public static $create_rules = [
 	    "rut" => "required",
-		"nombre" => "required|alpha",
-		"apellido" => "required|alpha",
-		"email" => "required|email",
-		'password' => 'required|min:3|confirmed',
-        'password_confirmation' => 'required|min:3'
+		"nombre" => "alpha",
+		"apellido" => "alpha",
+		"email" => "email",
+		'password' => 'min:3|confirmed',
+        'password_confirmation' => 'min:3'
 		
 	];
 

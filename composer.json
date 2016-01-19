@@ -13,7 +13,8 @@
         "mitulgolakiya/laravel-api-generator": "dev-master",
         "doctrine/dbal": "dev-master",
         "intervention/image": "dev-master",
-        "php-imap/php-imap": "~2.0"
+        "php-imap/php-imap": "~2.0",
+        "adldap2/adldap2-laravel": "1.4.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

@@ -27,6 +27,7 @@ return array(
     'Psy\\' => array($vendorDir . '/psy/psysh/src/Psy'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
     'PhpParser\\' => array($vendorDir . '/nikic/php-parser/lib/PhpParser'),
+    'PhpImap\\' => array($vendorDir . '/php-imap/php-imap/src/PhpImap'),
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
     'Mitul\\' => array($vendorDir . '/mitulgolakiya/laravel-api-generator/src/Mitul'),
     'League\\Flysystem\\' => array($vendorDir . '/league/flysystem/src'),
@@ -43,4 +44,6 @@ return array(
     'Carbon\\' => array($vendorDir . '/nesbot/carbon/src/Carbon'),
     'Bosnadev\\Repositories\\' => array($vendorDir . '/bosnadev/repositories/src'),
     'App\\' => array($baseDir . '/app'),
+    'Adldap\\Laravel\\' => array($vendorDir . '/adldap2/adldap2-laravel/src'),
+    'Adldap\\' => array($vendorDir . '/adldap2/adldap2/src'),
 );

@@ -29,7 +29,7 @@ class UsuarioController extends Controller
 	 */
 	public function index()
 	{
-		$usuarios = $this->usuarioRepository->paginate(20);
+		$usuarios = $this->usuarioRepository->all();
 		return view('usuarios.index')
 			->with('usuarios', $usuarios);
 	}
@@ -193,7 +193,7 @@ class UsuarioController extends Controller
 				'nombre' 	  => $user->getFirstName(),
 				'apellido'    => $user->getLastName(),
 				'imagen' 	  => 'images/avatar/default.png',
-				'password'    => Hash::make('12345'),
+				'password'    => '12345',
 				'created_at'  => $user->getCreatedAt(),
 				'updated_at'  => $user->getUpdatedAt(),
 				];

@@ -7,9 +7,9 @@
 					
 					<div class="panel-body">                       
                     	<!-- accountname Field -->
-                    	<div class="form-group{{ $errors->has('Accountname') ? ' has-error' : '' }}">
+                    	<div class="form-group{{ $errors->has('accountname') ? ' has-error' : '' }}">
 	                        <div class="form-group">                            
-	                            {!! Form::label('accountname', 'accountname:',array('class'=>"col-md-4 control-label")) !!}
+	                            {!! Form::label('accountname', 'Nombre Usuario:',array('class'=>"col-md-4 control-label")) !!}
 		                        <div class="col-md-6">
 		                        {!! Form::text('accountname', null, ['class' => 'form-control']) !!}
 	                            
@@ -36,8 +36,6 @@
 	                            </div>
 	                        </div>
 	                    </div>
-
-
 
                         <!-- Apellido Field -->
                         <div class="form-group{{ $errors->has('apellido') ? ' has-error' : '' }}">

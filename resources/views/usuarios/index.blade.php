@@ -18,10 +18,10 @@
             @endif
         </div>
         @include('common.paginate', ['records' => $usuarios])
-
+{{-- 
         <div class="row">
             @include('usuarios.table2')
-        </div>
+        </div> --}}
     </div>           
         
 @endsection

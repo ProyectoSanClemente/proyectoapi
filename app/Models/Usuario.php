@@ -9,7 +9,6 @@ class Usuario extends Model
 
 
 	public $fillable = [
-	    "rut",
 		"accountname",
 		"nombre",
 		"apellido",
@@ -35,7 +34,6 @@ class Usuario extends Model
     ];
 
 	public static $create_rules = [
-	    "rut" => "required",
 		"nombre" => "alpha",
 		"apellido" => "alpha",
 		"email" => "email",
@@ -45,7 +43,6 @@ class Usuario extends Model
 	];
 
 		public static $update_rules = [
-	    "rut" => "required",
 		"nombre" => "required|alpha",
 		"apellido" => "required|alpha",
 		"email" => "required|email",
@@ -66,7 +63,7 @@ class Usuario extends Model
 
         public function impresora()
     {
-        return $this->hasMany('Impresora','id');
+        return $this->hasMany('Impresora','accountname');
     }
 
 }

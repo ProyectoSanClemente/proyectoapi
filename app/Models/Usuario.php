@@ -33,7 +33,7 @@ class Usuario extends Model
     ];
 
 	public static $create_rules = [
-		"accountname" => "required|unique",
+		"accountname" => "required",
 		"nombre" => "alpha",
 		"apellido" => "alpha",
 		"email" => "email",

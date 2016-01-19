@@ -1,4 +1,10 @@
-<table class="table">
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#usuarios').DataTable();
+    } );
+</script>
+
+<table id="usuarios" class="table">
     <thead>
         <th>AccountName</th>
         <th>DisplayName</th>

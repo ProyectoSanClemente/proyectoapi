@@ -29,7 +29,7 @@ class UsuarioController extends Controller
 	 */
 	public function index()
 	{
-		$usuarios = $this->usuarioRepository->paginate(20);
+		$usuarios = $this->usuarioRepository->all();
 		return view('usuarios.index')
 			->with('usuarios', $usuarios);
 	}

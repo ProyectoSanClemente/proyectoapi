@@ -34,16 +34,16 @@ class Usuario extends Model
 
 	public static $create_rules = [
 		"accountname" => "required",
-		"nombre" => "alpha",
-		"apellido" => "alpha",
+		"nombre" => "required",
+		"apellido" => "required",
 		"email" => "email",
 		'password' => 'min:3|confirmed',
-        'password_confirmation' => 'min:3'		
+        'password_confirmation' => 'min:3'
 	];
 
 		public static $update_rules = [
-		"nombre" => "required|alpha",
-		"apellido" => "required|alpha",
+		"nombre" => "required",
+		"apellido" => "required",
 		'old_password'=>"required_with:password|min:3",
 		'password' => 'required_with:old_password|min:3|confirmed',
         'password_confirmation' => 'min:3'

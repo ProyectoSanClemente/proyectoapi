@@ -1,7 +1,12 @@
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#usuariosldap').DataTable();
+    } );
+</script>
+
 
 <h2>{{count($ldapusuarios)}} Usuarios LDAP</h2>
-
-<table class="table">
+<table id="usuariosldap" class="table">
     <thead>
         <th>Accountname</th>
         <th>AccountType</th>

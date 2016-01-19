@@ -29,7 +29,7 @@ class Impresora extends Model
 
 	 public function usuario()
     {
-        return $this->belongsTo('Usuario','accountname');
+        return $this->belongsToMany('Usuario','accountname');
     }
 
 }

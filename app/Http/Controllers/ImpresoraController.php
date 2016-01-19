@@ -54,9 +54,16 @@ class ImpresoraController extends AppBaseController
 	public function store(CreateImpresoraRequest $request)
 	{
 		$input = $request->all();
-		$impresora = $this->impresoraRepository->create($input);
+		$test = 'modelo_impresora';
+		$busqueda = $this->impresoraRepository->findAllBy($test,$request->modelo_impresora);
+		if(is_null($busqueda))
+		{
+			Flash::success('ERROR');
 
+			return redirect(route('impresoras.index'));
+		}
 
+		$impresora = $this->impresoraRepository->create($input);	
 
 		Flash::success('Impresora saved successfully.');
 

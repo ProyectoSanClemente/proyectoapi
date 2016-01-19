@@ -151,6 +151,7 @@ return [
         Laracasts\Flash\FlashServiceProvider::class,
         Mitul\Generator\GeneratorServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        Adldap\Laravel\AdldapServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -210,6 +211,7 @@ return [
         'Flash'     => Laracasts\Flash\Flash::class,
         'Image'     => Intervention\Image\Facades\Image::class,
         'Input'     => Illuminate\Support\Facades\Input::class,
+        'Adldap'    => Adldap\Laravel\Facades\Adldap::class,
     ],
 
 ];

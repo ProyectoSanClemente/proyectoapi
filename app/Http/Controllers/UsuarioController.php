@@ -8,6 +8,7 @@ use Flash;
 use Input;
 use Image;
 use Hash;
+use Adldap;
 use Response;
 
 class UsuarioController extends Controller
@@ -28,10 +29,38 @@ class UsuarioController extends Controller
 	 */
 	public function index()
 	{
-		$usuarios = $this->usuarioRepository->paginate(10);
+		
+		$ldapusuarios = Adldap::users()->all();
+		$ldapgrupos = Adldap::groups()->all();		
+		
+		
+		foreach ($ldapusuarios as $user) {
+			
+			$usuario=$this->usuarioRepository->findBy('accountname',$user->getAccountName());
 
+			if(empty($usuario)){
+				$data=[
+				'accountname' => $user->getAccountName(),
+				'displayname' => $user->getDisplayName(),
+				'nombre' 	  => $user->getFirstName(),
+				'apellido' => $user->getLastName(),
+				'imagen' 	  => 'images/avatar/default.png',
+				'created_at'  => $user->getCreatedAt(),
+				'updated_at'  => $user->getUpdatedAt(),
+				];
+				$usuario = $this->usuarioRepository->create($data);
+			}
+			else{
+				
+			}
+
+		}
+
+		$usuarios = $this->usuarioRepository->paginate(20);
 		return view('usuarios.index')
-			->with('usuarios', $usuarios);
+			->with('usuarios', $usuarios)
+			->with('ldapgrupos',$ldapgrupos)
+			->with('ldapusuarios',$ldapusuarios);
 	}
 
 	/**

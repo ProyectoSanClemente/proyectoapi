@@ -5,16 +5,16 @@
 					<div class="panel-heading">Edicion datos de usuario</div>
 					
 					<div class="panel-body">                       
-                    	<!-- Rut Field -->
-                    	<div class="form-group{{ $errors->has('rut') ? ' has-error' : '' }}">
+                    	<!-- accountname Field -->
+                    	<div class="form-group{{ $errors->has('accountname') ? ' has-error' : '' }}">
 	                        <div class="form-group">                            
-	                            {!! Form::label('rut', 'Rut:',array('class'=>"col-md-4 control-label")) !!}
+	                            {!! Form::label('accountname', 'AccountName:',array('class'=>"col-md-4 control-label")) !!}
 		                        <div class="col-md-6">
-		                        {!! Form::text('rut', null, ['class' => 'form-control','readonly'=>'readonly']) !!}
+		                        {!! Form::text('accountname', null, ['class' => 'form-control','readonly'=>'readonly']) !!}
 	                            
-		                        @if ($errors->has('rut'))
+		                        @if ($errors->has('accountname'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('rut') }}</strong>
+                                        <strong>{{ $errors->first('accountname') }}</strong>
                                     </span>
                                 @endif	                            
 	                            </div>

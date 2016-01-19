@@ -22,9 +22,8 @@ class Impresora extends Model
         "accountname" => "string",
 		"modelo_impresora" => "string"
     ];
-
 	public static $rules = [
-    "accountname" => "required",
+        "accountname" => "required",
 		"modelo_impresora" => "required"
 	];
 

@@ -36,8 +36,6 @@
 	                        </div>
 	                    </div>
 
-
-
                         <!-- Apellido Field -->
                         <div class="form-group{{ $errors->has('apellido') ? ' has-error' : '' }}">
 	                        <div class="form-group">
@@ -87,8 +85,6 @@
                     </div>               
             </div>
 
-
-            
             <div class="panel panel-default">
                 <div class="panel-heading">Edicion Password</div>
                     

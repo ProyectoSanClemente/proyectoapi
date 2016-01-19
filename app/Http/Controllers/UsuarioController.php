@@ -29,38 +29,9 @@ class UsuarioController extends Controller
 	 */
 	public function index()
 	{
-		
-		$ldapusuarios = Adldap::users()->all();
-		$ldapgrupos = Adldap::groups()->all();		
-		
-		
-		foreach ($ldapusuarios as $user) {
-			
-			$usuario=$this->usuarioRepository->findBy('accountname',$user->getAccountName());
-
-			if(empty($usuario)){
-				$data=[
-				'accountname' => $user->getAccountName(),
-				'displayname' => $user->getDisplayName(),
-				'nombre' 	  => $user->getFirstName(),
-				'apellido' => $user->getLastName(),
-				'imagen' 	  => 'images/avatar/default.png',
-				'created_at'  => $user->getCreatedAt(),
-				'updated_at'  => $user->getUpdatedAt(),
-				];
-				$usuario = $this->usuarioRepository->create($data);
-			}
-			else{
-				
-			}
-
-		}
-
 		$usuarios = $this->usuarioRepository->paginate(20);
 		return view('usuarios.index')
-			->with('usuarios', $usuarios)
-			->with('ldapgrupos',$ldapgrupos)
-			->with('ldapusuarios',$ldapusuarios);
+			->with('usuarios', $usuarios);
 	}
 
 	/**
@@ -160,18 +131,22 @@ class UsuarioController extends Controller
 		}
 		$input=$request->all();
 		if (Input::hasFile('imagen')){//Actualizar Imagen
-			$input['imagen'] = 'images/avatar/'.$usuario->rut.'.jpg';           
+			$input['imagen'] = 'images/avatar/'.$usuario->accountname.'.jpg';           
             Image::make(Input::file('imagen'))->resize(300, 300)->save($input['imagen']);
         }
-
-        if ($input['old_password']!="" && !Hash::check($input['old_password'], $usuario->password)) {
-        	return redirect(action('UsuarioController@edit', array($id)))
-   				   ->withErrors('El Password actual no corresponde');
+        if($input['old_password']!="" ){
+	        if (!Hash::check($input['old_password'], $usuario->password)) {
+	        	return redirect(action('UsuarioController@edit', array($id)))
+	   				   ->withErrors('El Password actual no corresponde');
+			}
+		}
+		else{
+			unset($input['password']);
 		}
 
         $this->usuarioRepository->updateRich($input, $id);
 
-		Flash::success('Usuario '.$usuario->rut.' actualizado exitosamente!.');
+		Flash::success('Usuario '.$usuario->accountname.' actualizado exitosamente!.');
 
 		return redirect(route('usuarios.index'));
 	}
@@ -195,7 +170,7 @@ class UsuarioController extends Controller
 		}
 
 		$this->usuarioRepository->delete($id);
-		$filename = 'images/avatar/'.$usuario->rut.'.jpg';
+		$filename = 'images/avatar/'.$usuario->accountname.'.jpg';
 		if(file_exists($filename))
 			unlink($filename);
 
@@ -203,4 +178,35 @@ class UsuarioController extends Controller
 
 		return redirect(route('usuarios.index'));
 	}
+
+
+	public function getldapusers(){
+    	$ldapusuarios = Adldap::users()->all();	
+		
+		foreach ($ldapusuarios as $user) {			
+			$usuario=$this->usuarioRepository->findBy('accountname',$user->getAccountName());
+
+			if(empty($usuario)){
+				$data=[
+				'accountname' => $user->getAccountName(),
+				'displayname' => $user->getDisplayName(),
+				'nombre' 	  => $user->getFirstName(),
+				'apellido'    => $user->getLastName(),
+				'imagen' 	  => 'images/avatar/default.png',
+				'password'    => Hash::make('12345'),
+				'created_at'  => $user->getCreatedAt(),
+				'updated_at'  => $user->getUpdatedAt(),
+				];
+				$usuario = $this->usuarioRepository->create($data);
+			}
+			else{
+				
+			}
+
+		}
+
+		return redirect(route('usuarios.index'));
+
+    }
+
 }

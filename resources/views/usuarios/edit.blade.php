@@ -9,6 +9,5 @@
         @include('usuarios.fields_edit')
 
     {!! Form::close() !!}
-
 </div>
 @endsection

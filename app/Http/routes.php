@@ -107,6 +107,9 @@ Route::group(['middleware' => 'web'], function () {
     'as' => 'impresoras.imprimir',
     'uses' => 'ImpresoraController@imprimir']);
 
-
+    Route::get('getldapusers', [
+        'as' => 'getldapusers',
+        'uses' => 'UsuarioController@getldapusers'
+    ]);
 });
 

@@ -33,21 +33,20 @@ class Usuario extends Model
     ];
 
 	public static $create_rules = [
+		"accountname" => "required|unique",
 		"nombre" => "alpha",
 		"apellido" => "alpha",
 		"email" => "email",
 		'password' => 'min:3|confirmed',
-        'password_confirmation' => 'min:3'
-		
+        'password_confirmation' => 'min:3'		
 	];
 
 		public static $update_rules = [
 		"nombre" => "required|alpha",
 		"apellido" => "required|alpha",
-		"email" => "required|email",
-		'old_password'=>"min:3",
+		'old_password'=>"required_with:password|min:3",
 		'password' => 'required_with:old_password|min:3|confirmed',
-        'password_confirmation' => 'min:3'	
+        'password_confirmation' => 'min:3'
 	];
 
     public function setPasswordAttribute($password)

@@ -7,7 +7,7 @@
 
     {!! Form::model($cuenta, ['route' => ['cuentas.update', $cuenta->id], 'method' => 'patch']) !!}
 
-        @include('cuentas.fields')
+        @include('cuentas.fields2')
 
     {!! Form::close() !!}
 </div>

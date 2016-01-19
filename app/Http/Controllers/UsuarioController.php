@@ -64,7 +64,7 @@ class UsuarioController extends Controller
 
         $usuario = $this->usuarioRepository->create($input);
 		
-		Flash::success('Usuario creado exitosamente!.');
+		Flash::success('Usuario agregado satisfactoriamente.');
 
 		return redirect(route('usuarios.index'));
 	}
@@ -146,7 +146,7 @@ class UsuarioController extends Controller
 
         $this->usuarioRepository->updateRich($input, $id);
 
-		Flash::success('Usuario '.$usuario->accountname.' actualizado exitosamente!.');
+		Flash::success('Usuario '.$usuario->accountname.' actualizado satisfactoriamente.');
 
 		return redirect(route('usuarios.index'));
 	}
@@ -164,7 +164,7 @@ class UsuarioController extends Controller
 
 		if(empty($usuario))
 		{
-			Flash::error('Usuario no encontrado!.');
+			Flash::error('Usuario no encontrado.');
 
 			return redirect(route('usuarios.index'));
 		}
@@ -174,7 +174,7 @@ class UsuarioController extends Controller
 		if(file_exists($filename))
 			unlink($filename);
 
-		Flash::success('Usuario eliminado exitosamente!.');
+		Flash::success('Usuario borrado satisfactoriamente.');
 
 		return redirect(route('usuarios.index'));
 	}

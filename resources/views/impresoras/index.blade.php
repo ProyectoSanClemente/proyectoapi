@@ -8,7 +8,6 @@
 
         <div class="row">
             <h1 class="pull-left">Impresoras</h1>
-            <a class="btn btn-primary pull-right" style="margin-top: 25px" href="">Add New</a>
         </div>
 
         <div class="row">
@@ -18,9 +17,5 @@
                 @include('impresoras.table')
             @endif
         </div>
-
-        @include('common.paginate', ['records' => $impresoras])
-
-
     </div>
 @endsection

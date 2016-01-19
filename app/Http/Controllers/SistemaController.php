@@ -61,7 +61,7 @@ class SistemaController extends AppBaseController
 
 		$sistema = $this->sistemaRepository->create($input);
 
-		Flash::success('Sistema Guardado con Éxito.');
+		Flash::success('Sistema agregado satisfactoriamente.');
 
 		return redirect(route('sistemas.index'));
 	}
@@ -79,7 +79,7 @@ class SistemaController extends AppBaseController
 
 		if(empty($sistema))
 		{
-			Flash::error('Sistema not found');
+			Flash::error('Sistema no encontrado.');
 
 			return redirect(route('sistemas.index'));
 		}
@@ -100,7 +100,7 @@ class SistemaController extends AppBaseController
 
 		if(empty($sistema))
 		{
-			Flash::error('Sistema no Encontrado');
+			Flash::error('Sistema no encontrado.');
 
 			return redirect(route('sistemas.index'));
 		}
@@ -122,7 +122,7 @@ class SistemaController extends AppBaseController
 		$input = $request->all();
 		if(empty($sistema))
 		{
-			Flash::error('Sistema not found');
+			Flash::error('Sistema no encontrado.');
 
 			return redirect(route('sistemas.index'));
 		}
@@ -137,7 +137,7 @@ class SistemaController extends AppBaseController
 
 		$this->sistemaRepository->updateRich($input, $id);
 
-		Flash::success('Sistema Actualizado Correctamente.');
+		Flash::success('Sistema actualizado satisfactoriamente.');
 
 		return redirect(route('sistemas.index'));
 	}
@@ -155,7 +155,7 @@ class SistemaController extends AppBaseController
 
 		if(empty($sistema))
 		{
-			Flash::error('Sistema not found');
+			Flash::error('Sistema no encontrado');
 
 			return redirect(route('sistemas.index'));
 		}
@@ -164,7 +164,7 @@ class SistemaController extends AppBaseController
 		if(file_exists($sistema->imagen_sistema))
 			unlink($sistema->imagen_sistema);
 
-		Flash::success('Sistema Borrado Correctamente.');
+		Flash::success('Sistema borrado satisfactoriamente.');
 
 		return redirect(route('sistemas.index'));
 	}

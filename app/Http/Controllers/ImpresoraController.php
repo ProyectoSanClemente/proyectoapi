@@ -28,7 +28,7 @@ class ImpresoraController extends AppBaseController
 	public function index()
 	{
 
-		$impresoras = $this->impresoraRepository->paginate(10);
+		$impresoras = $this->impresoraRepository->all();
 
 		return view('impresoras.index')
 			->with('impresoras', $impresoras);
@@ -53,21 +53,27 @@ class ImpresoraController extends AppBaseController
 	 */
 	public function store(CreateImpresoraRequest $request)
 	{
+		$duplicade = FALSE;
 		$input = $request->all();
-		$test = 'modelo_impresora';
-		$busqueda = $this->impresoraRepository->findAllBy($test,$request->modelo_impresora);
-		if(is_null($busqueda))
+		$busqueda = $this->impresoraRepository->findAllBy('modelo_impresora',$input['modelo_impresora']);
+		foreach ($busqueda as $impresoraa) {
+			if ($impresoraa->accountname==$input['accountname']) {
+					$duplicade = TRUE;
+					}		
+		}
+		if($duplicade)
 		{
-			Flash::success('ERROR');
+			Flash::warning('Error, ésta Impresora ya se encuentra asignada a éste Usuario.');
+
+			return redirect(route('usuarios.index'));
+		}
+		else{
+			$impresora = $this->impresoraRepository->create($input);	
+
+			Flash::success('Impresora agredada satisfactoriamente.');
 
 			return redirect(route('impresoras.index'));
 		}
-
-		$impresora = $this->impresoraRepository->create($input);	
-
-		Flash::success('Impresora saved successfully.');
-
-		return redirect(route('impresoras.index'));
 	}
 
 	/**
@@ -83,7 +89,7 @@ class ImpresoraController extends AppBaseController
 
 		if(empty($impresora))
 		{
-			Flash::error('Impresora not found');
+			Flash::error('Impresora no encontrada.');
 
 			return redirect(route('impresoras.index'));
 		}
@@ -104,7 +110,7 @@ class ImpresoraController extends AppBaseController
 
 		if(empty($impresora))
 		{
-			Flash::error('Impresora not found');
+			Flash::error('Impresora no encontrada.');
 
 			return redirect(route('impresoras.index'));
 		}
@@ -128,14 +134,14 @@ class ImpresoraController extends AppBaseController
 
 		if(empty($impresora))
 		{
-			Flash::error('Impresora not found');
+			Flash::error('Impresora no encontrada.');
 
 			return redirect(route('impresoras.index'));
 		}
 
 		$this->impresoraRepository->updateRich($input, $id);
 
-		Flash::success('Impresora updated successfully.');
+		Flash::success('Impresora actualizada satisfactoriamente.');
 
 		return redirect(route('impresoras.index'));
 	}
@@ -153,14 +159,14 @@ class ImpresoraController extends AppBaseController
 
 		if(empty($impresora))
 		{
-			Flash::error('Impresora not found');
+			Flash::error('Impresora no encontrada.');
 
 			return redirect(route('impresoras.index'));
 		}
 
 		$this->impresoraRepository->delete($id);
 
-		Flash::success('Impresora deleted successfully.');
+		Flash::success('Impresora borrada satisfactoriamente.');
 
 		return redirect(route('impresoras.index'));
 	}

@@ -1,7 +1,7 @@
 
 <div class="form-group col-sm-6 col-lg-4">
     {!! Form::label('Accountname', 'Accountname:') !!}
-    {!! Form::text('accountname',$id, ['class' => 'form-control','readonly' => 'readonly']) !!}
+    {!! Form::text('accountname',$impresora->accountname, ['class' => 'form-control','readonly' => 'readonly']) !!}
 </div>
 
 <div class="form-group col-sm-6 col-lg-4">

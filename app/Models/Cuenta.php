@@ -30,7 +30,6 @@ class Cuenta extends Model
     ];
 
 	public static $rules = [
-    	"id" => "required|unique:cuentas"
 	];
 	public function usuario()
     {

@@ -1,4 +1,10 @@
-<table class="table">
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#impresorastable').DataTable();
+    } );
+</script>
+
+<table id="impresorastable" class="table">
     <thead>
     <th>Usuario</th>
 			<th>Modelo Impresora</th>

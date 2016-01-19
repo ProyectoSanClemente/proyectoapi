@@ -59,7 +59,7 @@ class NoticeController extends AppBaseController
 	    $input['imagen']=$filename;
 	    Image::make(Input::file('imagen'))->resize(640, 480)->save($filename);
 		$notice = $this->noticeRepository->create($input);
-		Flash::success('Noticia Guardada con Éxito.');
+		Flash::success('Noticia agregada satisfactoriamente.');
 
 		return redirect(route('noticias.index'));
 	}
@@ -77,7 +77,7 @@ class NoticeController extends AppBaseController
 
 		if(empty($notice))
 		{
-			Flash::error('Noticia no Encontrada.');
+			Flash::error('Noticia no encontrada.');
 
 			return redirect(route('noticias.index'));
 		}
@@ -98,7 +98,7 @@ class NoticeController extends AppBaseController
 
 		if(empty($notice))
 		{
-			Flash::error('Noticia no Encontrada.');
+			Flash::error('Noticia no encontrada.');
 
 			return redirect(route('noticias.index'));
 		}
@@ -120,7 +120,7 @@ class NoticeController extends AppBaseController
 		$notice = $this->noticeRepository->find($id);
 		if(empty($notice))
 		{
-			Flash::error('Noticia no Encontrada.');
+			Flash::error('Noticia no encontrada.');
 
 			return redirect(route('noticias.index'));
 		}
@@ -132,7 +132,7 @@ class NoticeController extends AppBaseController
 	    }
 		$this->noticeRepository->updateRich($input, $id);
 
-		Flash::success('Noticia Actualizada Correctamente.');
+		Flash::success('Noticia actualizada satisfactoriamente.');
 
 		return redirect(route('noticias.index'));
 	}
@@ -150,7 +150,7 @@ class NoticeController extends AppBaseController
 
 		if(empty($notice))
 		{
-			Flash::error('Noticia no Encontrada.');
+			Flash::error('Noticia no encontrada.');
 
 			return redirect(route('noticias.index'));
 		}
@@ -159,7 +159,7 @@ class NoticeController extends AppBaseController
 		if(file_exists($notice->imagen))
 			unlink($notice->imagen);
 
-		Flash::success('Noticia Borrada con Éxito.');
+		Flash::success('Noticia borrada satisfactoriamente.');
 
 		return redirect(route('noticias.index'));
 	}

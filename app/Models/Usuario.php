@@ -24,7 +24,6 @@ class Usuario extends Model
      * @var array
      */
     protected $casts = [
-        "rut" => "integer",
         "accountname"=> "string",
 		"nombre" => "string",
 		"displayname"=> "string",

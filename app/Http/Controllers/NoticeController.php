@@ -9,6 +9,7 @@ use Mitul\Controller\AppBaseController as AppBaseController;
 use Response;
 use Input;
 use Image;
+use Feeds;
 
 class NoticeController extends AppBaseController
 {
@@ -29,9 +30,11 @@ class NoticeController extends AppBaseController
 	public function index()
 	{
 		$notices = $this->noticeRepository->paginate(4);
+		$feed = Feeds::make('http://www.sanclemente.cl/web/?feed=rss');
 
 		return view('noticias.index')
-			->with('notices', $notices);
+			->with('notices', $notices)
+			->with('feed',$feed);
 	}
 
 	/**

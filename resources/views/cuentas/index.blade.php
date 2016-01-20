@@ -9,7 +9,7 @@
         <div class="row">
             <h1 class="pull-left">Cuentas</h1>
         </div>
-
+        <hr>
         <div class="row">
             @if($cuentas->isEmpty())
                 <div class="well text-center">No Cuentas found.</div>
@@ -17,8 +17,6 @@
                 @include('cuentas.table')
             @endif
         </div>
-
-        @include('common.paginate', ['records' => $cuentas])
 
 
     </div>

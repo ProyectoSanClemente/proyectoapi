@@ -4,6 +4,7 @@
 
 }
 </style>
+
 <hr>
 @foreach($notices->chunk(2) as $variable)
     <div class="row">

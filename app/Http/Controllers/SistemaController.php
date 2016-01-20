@@ -28,7 +28,7 @@ class SistemaController extends AppBaseController
 	 */
 	public function index()
 	{
-		$sistemas = $this->sistemaRepository->paginate(10);
+		$sistemas = $this->sistemaRepository->all();
 
 		return view('sistemas.index')
 			->with('sistemas', $sistemas);

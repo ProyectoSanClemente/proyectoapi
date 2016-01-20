@@ -9,11 +9,13 @@ class Cuenta extends Model
     
 
 	public $fillable = [
-		"id",
-		"zimbra_id",
-		"zimbra_pass",
-		"nube_id",
-		"nube_pass"
+		"accountname",
+		"id_sidam",
+		"pass_sidam",
+		"id_crecic",
+		"pass_crecic",
+		"id_zimbra",
+		"pass_zimbra",
 	];
 
     /**
@@ -22,18 +24,21 @@ class Cuenta extends Model
      * @var array
      */
     protected $casts = [
-    	"id" => "integer",
-		"zimbra_id" => "string",
-		"zimbra_pass" => "string",
-		"nube_id" => "string",
-		"nube_pass" => "string"
+    	"accountname" => "string",
+		"id_sidam" => "string",
+		"pass_sidam" => "string",
+		"id_crecic" => "string",
+		"pass_crecic" => "string",
+		"id_zimbra" => "string",
+		"pass_zimbra" => "string"
     ];
 
 	public static $rules = [
+	"accountname" => "unique:cuentas"
 	];
 	public function usuario()
     {
-        return $this->belongsTo('Usuario','rut');
+        return $this->belongsTo('Usuario','accountname');
     }
 
 }

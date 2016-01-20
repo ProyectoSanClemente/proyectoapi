@@ -29,7 +29,7 @@ class CuentaController extends AppBaseController
 	 */
 	public function index()
 	{
-		$cuentas = $this->cuentaRepository->paginate(10);
+		$cuentas = $this->cuentaRepository->all();
 		/*$comments = $this->usuarioRepository->find(1)->where('id', '=', $cuentas['usuario_id'])->first();*/
 		return view('cuentas.index')
 			->with('cuentas', $cuentas);
@@ -59,7 +59,7 @@ class CuentaController extends AppBaseController
 
 		try{
 			$cuenta = $this->cuentaRepository->create($input);
-			Flash::success('Cuenta saved successfully.');
+			Flash::success('Cuenta agregada satisfactoriamente.');
 			return redirect(route('cuentas.index'));
 
 		    } catch(QueryException $e) {
@@ -84,7 +84,7 @@ class CuentaController extends AppBaseController
 
 		if(empty($cuenta))
 		{
-			Flash::error('Cuenta not found');
+			Flash::error('Cuenta no encontrada.');
 
 			return redirect(route('cuentas.index'));
 		}
@@ -105,7 +105,7 @@ class CuentaController extends AppBaseController
 
 		if(empty($cuenta))
 		{
-			Flash::error('Cuenta not found');
+			Flash::error('Cuenta no encontrada.');
 
 			return redirect(route('cuentas.index'));
 		}
@@ -128,14 +128,14 @@ class CuentaController extends AppBaseController
 
 		if(empty($cuenta))
 		{
-			Flash::error('Cuenta not found');
+			Flash::error('Cuenta no encontrada.');
 
 			return redirect(route('cuentas.index'));
 		}
 
 		$this->cuentaRepository->updateRich($request->all(), $id);
 
-		Flash::success('Cuenta updated successfully.');
+		Flash::success('Cuenta actualizada satisfactoriamente.');
 
 		return redirect(route('cuentas.index'));
 	}
@@ -153,14 +153,14 @@ class CuentaController extends AppBaseController
 
 		if(empty($cuenta))
 		{
-			Flash::error('Cuenta not found');
+			Flash::error('Cuenta no encontrada.');
 
 			return redirect(route('cuentas.index'));
 		}
 
 		$this->cuentaRepository->delete($id);
 
-		Flash::success('Cuenta deleted successfully.');
+		Flash::success('Cuenta borrada satisfactoriamente.');
 
 		return redirect(route('cuentas.index'));
 	}

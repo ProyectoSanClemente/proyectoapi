@@ -47,18 +47,17 @@
                  <ul class="nav navbar-nav">
                     <li> {{ HTML::link('usuarios', 'Directorio Empleados')}}</li>
                 </ul>
-
                 <ul class="nav navbar-nav">
-                    <li> {{ HTML::link('usuarios', 'Eventos')}}</li>
-                </ul>
-                <ul class="nav navbar-nav">
-                    <li> {{ HTML::link('usuarios', 'Tareas')}}</li>
+                    <li> {{ HTML::link('impresoras', 'Impresoras')}}</li>
                 </ul>
                 <ul class="nav navbar-nav">
                     <li> {{ HTML::link('noticias', 'Noticias')}}</li>
                 </ul>
                 <ul class="nav navbar-nav">
-                    <li> {{ HTML::link('usuarios', 'Contenido')}}</li><li> {{ HTML::link('usuarios', 'Flujo de Trabajo')}}</li>
+                    <li> {{ HTML::link('usuarios', 'Contenido')}}</li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li> {{ HTML::link('cuentas', 'Cuentas')}}</li>
                 </ul>
                 <ul class="nav navbar-nav">
                     <li> {{ HTML::link('emails/index', 'Correo')}}</li>

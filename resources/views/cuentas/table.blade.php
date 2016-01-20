@@ -1,20 +1,29 @@
-<table class="table">
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#cuentastable').DataTable();
+    } );
+</script>
+<table id="cuentastable"  class="table">
     <thead>
-    <th>Usuario Id</th>
-			<th>Zimbra Id</th>
-			<th>Zimbra Pass</th>
-			<th>Nube Id</th>
-			<th>Nube Pass</th>
+            <th>Accountname</th>
+			<th>Id Sidam</th>
+			<th>Pass Sidam</th>
+			<th>Id Crecic</th>
+			<th>Pass Crecic</th>
+            <th>Id Zimbra</th>
+            <th>Pass Zimbra</th>
     <th width="50px">Action</th>
     </thead>
     <tbody>
     @foreach($cuentas as $cuenta)
         <tr>
-            <td>{!! $cuenta->id!!}</td>
-			<td>{!! $cuenta->zimbra_id !!}</td>
-			<td>{!! $cuenta->zimbra_pass !!}</td>
-			<td>{!! $cuenta->nube_id !!}</td>
-			<td>{!! $cuenta->nube_pass !!}</td>
+            <td>{!! $cuenta->accountname!!}</td>
+			<td>{!! $cuenta->id_sidam !!}</td>
+			<td>{!! $cuenta->pass_sidam !!}</td>
+			<td>{!! $cuenta->id_crecic !!}</td>
+			<td>{!! $cuenta->pass_crecic !!}</td>
+            <td>{!! $cuenta->id_zimbra !!}</td>
+            <td>{!! $cuenta->pass_zimbra !!}</td>
             <td>
                 <a href="{!! route('cuentas.edit', [$cuenta->id]) !!}"><i class="glyphicon glyphicon-edit"></i></a>
                 <a href="{!! route('cuentas.delete', [$cuenta->id]) !!}" onclick="return confirm('Are you sure wants to delete this Cuenta?')"><i class="glyphicon glyphicon-remove"></i></a>

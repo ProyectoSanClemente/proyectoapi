@@ -56,7 +56,7 @@ class Usuario extends Model
 
     public function cuenta()
     {
-        return $this->hasOne('Cuenta','id');
+        return $this->hasOne('Cuenta','accountname');
     }
 
         public function impresora()

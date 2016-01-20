@@ -12,7 +12,6 @@
             <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('usuarios.create') !!}">  Añadir Nuevo Usuario<span class="glyphicon glyphicon-plus"></span></a>
         </div>
         <hr>
-
         <div class="row">
             @if($usuarios->isEmpty())
                 <div class="well text-center">Usuarios No Encontrados.</div>

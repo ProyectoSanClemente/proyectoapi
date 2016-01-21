@@ -3517,57 +3517,6 @@
         ]
     },
     {
-        "name": "mitulgolakiya/laravel-api-generator",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/mitulgolakiya/laravel-api-generator.git",
-            "reference": "c96b6f0f5ae3362f8cfcbe3a84b3f1e780a8eee9"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/mitulgolakiya/laravel-api-generator/zipball/c96b6f0f5ae3362f8cfcbe3a84b3f1e780a8eee9",
-            "reference": "c96b6f0f5ae3362f8cfcbe3a84b3f1e780a8eee9",
-            "shasum": ""
-        },
-        "require": {
-            "illuminate/support": "5.2.*",
-            "php": ">=5.5.9"
-        },
-        "suggest": {
-            "doctrine/dbal": "Required to use generator from existing table."
-        },
-        "time": "2016-01-11 04:40:45",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Mitul\\": "src/Mitul/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Mitul Golakiya",
-                "email": "me@mitul.me"
-            }
-        ],
-        "description": "Laravel API/Scaffold/CRUD Generator from just one command with including Controller, Repository, Model, Migrations, routes.php update.",
-        "keywords": [
-            "api",
-            "crud",
-            "generator",
-            "laravel",
-            "migration",
-            "model",
-            "scaffold"
-        ]
-    },
-    {
         "name": "intervention/image",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
@@ -3760,62 +3709,6 @@
             "framework",
             "laravel"
         ]
-    },
-    {
-        "name": "laravelcollective/html",
-        "version": "v5.2.2",
-        "version_normalized": "5.2.2.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/LaravelCollective/html.git",
-            "reference": "c88b2d59a56ed2290fc5082a1a6099e357c9fdbc"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/LaravelCollective/html/zipball/c88b2d59a56ed2290fc5082a1a6099e357c9fdbc",
-            "reference": "c88b2d59a56ed2290fc5082a1a6099e357c9fdbc",
-            "shasum": ""
-        },
-        "require": {
-            "illuminate/http": "5.2.*",
-            "illuminate/routing": "5.2.*",
-            "illuminate/session": "5.2.*",
-            "illuminate/support": "5.2.*",
-            "illuminate/view": "5.2.*",
-            "php": ">=5.5.9"
-        },
-        "require-dev": {
-            "illuminate/database": "5.2.*",
-            "mockery/mockery": "~0.9",
-            "phpunit/phpunit": "~4.0"
-        },
-        "time": "2016-01-16 16:54:49",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Collective\\Html\\": "src/"
-            },
-            "files": [
-                "src/helpers.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Taylor Otwell",
-                "email": "taylorotwell@gmail.com"
-            },
-            {
-                "name": "Adam Engebretson",
-                "email": "adam@laravelcollective.com"
-            }
-        ],
-        "description": "HTML and Form Builders for the Laravel Framework",
-        "homepage": "http://laravelcollective.com"
     },
     {
         "name": "php-imap/php-imap",
@@ -4128,5 +4021,156 @@
             }
         ],
         "description": "Laravel 5 Service Provider for the SimplePie library"
+    },
+    {
+        "name": "laravelcollective/html",
+        "version": "v5.2.3",
+        "version_normalized": "5.2.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/LaravelCollective/html.git",
+            "reference": "7ec0ca55cab54cc6d331007d86ec068b61f46aad"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/LaravelCollective/html/zipball/7ec0ca55cab54cc6d331007d86ec068b61f46aad",
+            "reference": "7ec0ca55cab54cc6d331007d86ec068b61f46aad",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/http": "5.2.*",
+            "illuminate/routing": "5.2.*",
+            "illuminate/session": "5.2.*",
+            "illuminate/support": "5.2.*",
+            "illuminate/view": "5.2.*",
+            "php": ">=5.5.9"
+        },
+        "require-dev": {
+            "illuminate/database": "5.2.*",
+            "mockery/mockery": "~0.9",
+            "phpunit/phpunit": "~4.0"
+        },
+        "time": "2016-01-20 18:28:21",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Collective\\Html\\": "src/"
+            },
+            "files": [
+                "src/helpers.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Taylor Otwell",
+                "email": "taylorotwell@gmail.com"
+            },
+            {
+                "name": "Adam Engebretson",
+                "email": "adam@laravelcollective.com"
+            }
+        ],
+        "description": "HTML and Form Builders for the Laravel Framework",
+        "homepage": "http://laravelcollective.com"
+    },
+    {
+        "name": "artisaninweb/laravel-soap",
+        "version": "0.2.5.10",
+        "version_normalized": "0.2.5.10",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/artisaninweb/laravel-soap.git",
+            "reference": "a25956372fdc095a2206a5cacf76d12b1b11c084"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/artisaninweb/laravel-soap/zipball/a25956372fdc095a2206a5cacf76d12b1b11c084",
+            "reference": "a25956372fdc095a2206a5cacf76d12b1b11c084",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4.0"
+        },
+        "time": "2015-06-17 11:22:29",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Artisaninweb\\SoapWrapper": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Michael van de Rijt",
+                "email": "me@mvdrijt.com"
+            }
+        ],
+        "description": "A SoapClient wrapper integration for Laravel",
+        "keywords": [
+            "client",
+            "laravel",
+            "soap",
+            "wrapper"
+        ]
+    },
+    {
+        "name": "mitulgolakiya/laravel-api-generator",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/mitulgolakiya/laravel-api-generator.git",
+            "reference": "6b07db659a05e3bc9a56091078ec1211e199d9a3"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/mitulgolakiya/laravel-api-generator/zipball/6b07db659a05e3bc9a56091078ec1211e199d9a3",
+            "reference": "6b07db659a05e3bc9a56091078ec1211e199d9a3",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/support": "5.2.*",
+            "php": ">=5.5.9"
+        },
+        "suggest": {
+            "doctrine/dbal": "Required to use generator from existing table."
+        },
+        "time": "2016-01-20 18:38:15",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Mitul\\": "src/Mitul/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Mitul Golakiya",
+                "email": "me@mitul.me"
+            }
+        ],
+        "description": "Laravel API/Scaffold/CRUD Generator from just one command with including Controller, Repository, Model, Migrations, routes.php update.",
+        "keywords": [
+            "api",
+            "crud",
+            "generator",
+            "laravel",
+            "migration",
+            "model",
+            "scaffold"
+        ]
     }
 ]

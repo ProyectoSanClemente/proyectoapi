@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b0f35b2042667cfcaf67c00c94f38242",
-    "content-hash": "2a202ad353acac1c0076ef2b9a8a51fd",
+    "hash": "d18acf87dd0d8324ac0193701520217b",
+    "content-hash": "f7acb2df2f509150ca908b68e7a7cb78",
     "packages": [
         {
             "name": "adldap2/adldap2",
@@ -99,6 +99,48 @@
                 "ldap"
             ],
             "time": "2016-01-11 20:39:47"
+        },
+        {
+            "name": "artisaninweb/laravel-soap",
+            "version": "0.2.5.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/artisaninweb/laravel-soap.git",
+                "reference": "a25956372fdc095a2206a5cacf76d12b1b11c084"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/artisaninweb/laravel-soap/zipball/a25956372fdc095a2206a5cacf76d12b1b11c084",
+                "reference": "a25956372fdc095a2206a5cacf76d12b1b11c084",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Artisaninweb\\SoapWrapper": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael van de Rijt",
+                    "email": "me@mvdrijt.com"
+                }
+            ],
+            "description": "A SoapClient wrapper integration for Laravel",
+            "keywords": [
+                "client",
+                "laravel",
+                "soap",
+                "wrapper"
+            ],
+            "time": "2015-06-17 11:22:29"
         },
         {
             "name": "bosnadev/repositories",
@@ -1145,16 +1187,16 @@
         },
         {
             "name": "laravelcollective/html",
-            "version": "v5.2.2",
+            "version": "v5.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LaravelCollective/html.git",
-                "reference": "c88b2d59a56ed2290fc5082a1a6099e357c9fdbc"
+                "reference": "7ec0ca55cab54cc6d331007d86ec068b61f46aad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/c88b2d59a56ed2290fc5082a1a6099e357c9fdbc",
-                "reference": "c88b2d59a56ed2290fc5082a1a6099e357c9fdbc",
+                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/7ec0ca55cab54cc6d331007d86ec068b61f46aad",
+                "reference": "7ec0ca55cab54cc6d331007d86ec068b61f46aad",
                 "shasum": ""
             },
             "require": {
@@ -1195,7 +1237,7 @@
             ],
             "description": "HTML and Form Builders for the Laravel Framework",
             "homepage": "http://laravelcollective.com",
-            "time": "2016-01-16 16:54:49"
+            "time": "2016-01-20 18:28:21"
         },
         {
             "name": "league/flysystem",
@@ -1287,12 +1329,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mitulgolakiya/laravel-api-generator.git",
-                "reference": "c96b6f0f5ae3362f8cfcbe3a84b3f1e780a8eee9"
+                "reference": "6b07db659a05e3bc9a56091078ec1211e199d9a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mitulgolakiya/laravel-api-generator/zipball/c96b6f0f5ae3362f8cfcbe3a84b3f1e780a8eee9",
-                "reference": "c96b6f0f5ae3362f8cfcbe3a84b3f1e780a8eee9",
+                "url": "https://api.github.com/repos/mitulgolakiya/laravel-api-generator/zipball/6b07db659a05e3bc9a56091078ec1211e199d9a3",
+                "reference": "6b07db659a05e3bc9a56091078ec1211e199d9a3",
                 "shasum": ""
             },
             "require": {
@@ -1328,7 +1370,7 @@
                 "model",
                 "scaffold"
             ],
-            "time": "2016-01-11 04:40:45"
+            "time": "2016-01-20 18:38:15"
         },
         {
             "name": "monolog/monolog",

@@ -153,6 +153,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Adldap\Laravel\AdldapServiceProvider::class,
         willvincent\Feeds\FeedsServiceProvider::class,
+        Artisaninweb\SoapWrapper\ServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -213,7 +214,8 @@ return [
         'Image'     => Intervention\Image\Facades\Image::class,
         'Input'     => Illuminate\Support\Facades\Input::class,
         'Adldap'    => Adldap\Laravel\Facades\Adldap::class,
-        'Feeds'    => willvincent\Feeds\Facades\FeedsFacade::class,
+        'Feeds'     => willvincent\Feeds\Facades\FeedsFacade::class,
+        'SoapWrapper' => Artisaninweb\SoapWrapper\Facades\SoapWrapper::class,
     ],
 
 ];

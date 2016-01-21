@@ -28,6 +28,7 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['web']], function () {
     //
+    Route::get('/demo', ['as' => 'demo', 'uses' => 'SoapController@demo']);
 });
 
 

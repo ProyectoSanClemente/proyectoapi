@@ -46,24 +46,22 @@
 					</div>
                     
 					<div class="mail-content">
-						<?php print(nl2br($mail->textPlain)) ?>
-						{{-- <p>{{$mail->textHtml}}</p> --}}
+						{{--*/ print(nl2br($mail->textPlain)) /*--}} {{-- Imprime el mail --}}
 					</div>
+					{{--*/  $archivos=$mail->getAttachments() /*--}} {{-- Se asignan los attachments--}}
+					@if(!empty($archivos))
+						<div class="mail-attachments">
+							<p><i class="fa fa-paperclip"></i> {{count($archivos)}} | <a href="javascript:;">Descargar</a></p>
+							<ul class="list-unstyled">
+								@foreach ($archivoss as $archivo)
+									<li><a>{{ $archivo->name }}</a></li>
+								@endforeach
+							</ul>							 
+						</div>
+					@endif
 					
-					{{-- <div class="mail-attachments">
-
-						<p><i class="fa fa-paperclip"></i> 2 attachements | <a href="javascript:;">Download all attachements</a></p>
-						<ul class="list-unstyled">
-							<li><a>iniformation.pdf</a></li>
-							<li>drivername.ini</a></li>
-
-						</ul>
-						 
-					</div> --}}
 					<div class="mail-actions">
-                    
-						<a href="#/mail/compose" class="btn btn-sm btn-default">Responder <i class="fa fa-mail-reply"></i></a>
-					
+                    <a href="#/mail/compose" class="btn btn-sm btn-default">Responder <i class="fa fa-mail-reply"></i></a>	
                     	<ul class="list-unstyled list-inline">
 							<li><a href="#"><span class="label label-default">Technology</span></a></li>
 							<li><a href="#"><span class="label label-default">Technology</span></a></li>

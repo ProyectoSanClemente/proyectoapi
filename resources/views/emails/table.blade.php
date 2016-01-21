@@ -30,7 +30,7 @@
 			@else
 				<td>Leido</td>
 			@endif
-			<td><a href="{!! route('emails.show', [$mail->uid]) !!}#myModal"><i class="glyphicon glyphicon-envelope"></i></a>
+			<td><a href="{!! route('emails.show', [$mail->uid]) !!}"><i class="glyphicon glyphicon-envelope"></i></a>
 			<td><a href="{!! route('emails.markMailAsRead', [$mail->uid]) !!}" onclick="return confirm('Desea marcar el correo como no leido?')"><i class="glyphicon glyphicon-eye-open"></i></a>
 
 			<a href="{!! route('emails.markMailAsUnread', [$mail->uid]) !!}" onclick="return confirm('Desea marcar el correo como no leido?')"><i class="glyphicon glyphicon-eye-close"></i></a></td>

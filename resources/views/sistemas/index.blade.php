@@ -5,10 +5,11 @@
     <div class="container">
 
         @include('flash::message')
-
         <div class="row">
             <h1 class="pull-left">Sistemas</h1>
-            <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('sistemas.create') !!}">Add New</a>
+            @if(Auth::user()->rol=='admin')
+                <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('sistemas.create') !!}">Add New</a>
+            @endif
         </div>
         <hr>
         <div class="row">

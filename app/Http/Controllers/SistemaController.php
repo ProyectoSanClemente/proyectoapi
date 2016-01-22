@@ -19,6 +19,8 @@ class SistemaController extends AppBaseController
 	function __construct(SistemaRepository $sistemaRepo)
 	{
 		$this->sistemaRepository = $sistemaRepo;
+		$this->middleware('auth');
+		$this->middleware('admin',['only' => ['edit','create','delete','show']]);
 	}
 
 	/**

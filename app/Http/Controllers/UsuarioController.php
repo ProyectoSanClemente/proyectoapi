@@ -20,6 +20,8 @@ class UsuarioController extends Controller
 	function __construct(UsuarioRepository $usuarioRepo)
 	{
 		$this->usuarioRepository = $usuarioRepo;
+		$this->middleware('auth');
+		$this->middleware('admin',['only'=>['create','index','delete']]);
 	}
 
 	/**
@@ -182,7 +184,7 @@ class UsuarioController extends Controller
 
 	public function getldapusers(){
     	$ldapusuarios = Adldap::users()->all();	
-		
+		$agregados=0;
 		foreach ($ldapusuarios as $user) {			
 			$usuario=$this->usuarioRepository->findBy('accountname',$user->getAccountName());
 
@@ -192,19 +194,21 @@ class UsuarioController extends Controller
 				'displayname' => $user->getDisplayName(),
 				'nombre' 	  => $user->getFirstName(),
 				'apellido'    => $user->getLastName(),
+				'rol'		  => 'usuario',
 				'imagen' 	  => 'images/avatar/default.png',
 				'password'    => '12345',
 				'created_at'  => $user->getCreatedAt(),
 				'updated_at'  => $user->getUpdatedAt(),
 				];
 				$usuario = $this->usuarioRepository->create($data);
+				$agregados++;
 			}
 			else{
 				
 			}
 
 		}
-
+		Flash::success('Importados '.$agregados.' usuarios desde el DA');
 		return redirect(route('usuarios.index'));
 
     }

@@ -15,7 +15,10 @@ use HTML;
 
 class EmailController extends Controller
 {
-
+	function __construct()
+	{
+		$this->middleware('auth');
+	}
 
     private function conect(){
     	$hostname="{sanclemente.cl:993/imap/ssl/novalidate-cert}INBOX";
@@ -52,7 +55,6 @@ class EmailController extends Controller
 		if(!$mailsIds) {
 			Flash::error('No hay mensajes sin leer!.');
 			return redirect()->route('emails.index');
-		    //die('No hay mensajes sin ver');
 		}
 		else{
 			$mailsinfo = $mailbox->getMailsInfo($mailsIds);

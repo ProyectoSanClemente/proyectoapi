@@ -34,8 +34,14 @@ class Cuenta extends Model
     ];
 
 	public static $rules = [
-	"accountname" => "unique:cuentas"
+		"accountname" => "unique:cuentas"
 	];
+
+	public static $update_rules = [
+		
+
+	];
+
 	public function usuario()
     {
         return $this->belongsTo('Usuario','accountname');

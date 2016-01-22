@@ -7,7 +7,7 @@
 
     {!! Form::model($impresora, ['route' => ['impresoras.update', $impresora->id], 'method' => 'patch']) !!}
 
-        @include('impresoras.fields2')
+        @include('impresoras.fields_edit')
 
     {!! Form::close() !!}
 </div>

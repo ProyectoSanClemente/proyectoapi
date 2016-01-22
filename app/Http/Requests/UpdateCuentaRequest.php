@@ -22,7 +22,7 @@ class UpdateCuentaRequest extends Request {
 	 */
 	public function rules()
 	{
-		return Cuenta::$rules;
+		return Cuenta::$update_rules;
 	}
 
 }

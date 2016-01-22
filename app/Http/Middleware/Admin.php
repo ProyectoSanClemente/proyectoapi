@@ -22,7 +22,7 @@ class Admin
     public function handle($request, Closure $next)
     {
         if($this->auth->user()->rol!='admin'){
-            Flash::warning('Debe ingresar con un perfil de administrador');
+            Flash::warning('No tiene los privilegios para acceder');
             return redirect()->guest('home');
         }
 

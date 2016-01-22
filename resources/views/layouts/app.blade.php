@@ -41,10 +41,11 @@
                     Inicio
                 </a>
             </div>
-
+            
             <div class="collapse navbar-collapse" id="spark-navbar-collapse">
                 <!-- Left Side Of Navbar -->
-                 <ul class="nav navbar-nav">
+             @if(!Auth::guest()&&Auth::user()->rol=='admin')             
+                <ul class="nav navbar-nav">
                     <li> {{ HTML::link('usuarios', 'Directorio Empleados')}}</li>
                 </ul>
                 <ul class="nav navbar-nav">
@@ -68,7 +69,23 @@
                 <ul class="nav navbar-nav">
                     <li> {{ HTML::link('sistemas', 'Sistemas')}}</li>
                 </ul>
-
+            @else
+                <ul class="nav navbar-nav">
+                    <li> {{ HTML::link('impresoras', 'Impresoras')}}</li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li> {{ HTML::link('noticias', 'Noticias')}}</li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li> {{ HTML::link('cuentas', 'Cuentas')}}</li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li> {{ HTML::link('emails/index', 'Correo')}}</li>
+                </ul>              
+                <ul class="nav navbar-nav">
+                    <li> {{ HTML::link('sistemas', 'Sistemas')}}</li>
+                </ul>
+            @endif
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->

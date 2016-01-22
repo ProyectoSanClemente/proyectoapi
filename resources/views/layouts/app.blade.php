@@ -65,9 +65,6 @@
                     </ul>
                 @else
                     <ul class="nav navbar-nav">
-                        <li> {{ HTML::link('impresoras', 'Impresoras')}}</li>
-                    </ul>
-                    <ul class="nav navbar-nav">
                         <li> {{ HTML::link('noticias', 'Noticias')}}</li>
                     </ul>
                     <ul class="nav navbar-nav">

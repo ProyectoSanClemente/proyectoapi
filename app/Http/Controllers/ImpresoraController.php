@@ -18,6 +18,8 @@ class ImpresoraController extends AppBaseController
 	function __construct(ImpresoraRepository $impresoraRepo)
 	{
 		$this->impresoraRepository = $impresoraRepo;
+		$this->middleware('auth');
+		$this->middleware('admin',['only' => ['edit','create','delete','show']]);
 	}
 
 	/**

@@ -44,47 +44,49 @@
             
             <div class="collapse navbar-collapse" id="spark-navbar-collapse">
                 <!-- Left Side Of Navbar -->
-             @if(!Auth::guest()&&Auth::user()->rol=='admin')             
-                <ul class="nav navbar-nav">
-                    <li> {{ HTML::link('usuarios', 'Directorio Empleados')}}</li>
-                </ul>
-                <ul class="nav navbar-nav">
-                    <li> {{ HTML::link('impresoras', 'Impresoras')}}</li>
-                </ul>
-                <ul class="nav navbar-nav">
-                    <li> {{ HTML::link('noticias', 'Noticias')}}</li>
-                </ul>
-                <ul class="nav navbar-nav">
-                    <li> {{ HTML::link('usuarios', 'Contenido')}}</li>
-                </ul>
-                <ul class="nav navbar-nav">
-                    <li> {{ HTML::link('cuentas', 'Cuentas')}}</li>
-                </ul>
-                <ul class="nav navbar-nav">
-                    <li> {{ HTML::link('emails/index', 'Correo')}}</li>
-                </ul>
-                <ul class="nav navbar-nav">
-                    <li> {{ HTML::link('usuarios', 'Administrador')}}</li> 
-                </ul>                
-                <ul class="nav navbar-nav">
-                    <li> {{ HTML::link('sistemas', 'Sistemas')}}</li>
-                </ul>
-            @else
-                <ul class="nav navbar-nav">
-                    <li> {{ HTML::link('impresoras', 'Impresoras')}}</li>
-                </ul>
-                <ul class="nav navbar-nav">
-                    <li> {{ HTML::link('noticias', 'Noticias')}}</li>
-                </ul>
-                <ul class="nav navbar-nav">
-                    <li> {{ HTML::link('cuentas', 'Cuentas')}}</li>
-                </ul>
-                <ul class="nav navbar-nav">
-                    <li> {{ HTML::link('emails/index', 'Correo')}}</li>
-                </ul>              
-                <ul class="nav navbar-nav">
-                    <li> {{ HTML::link('sistemas', 'Sistemas')}}</li>
-                </ul>
+             @if(!Auth::guest())
+                 @if(Auth::user()->rol=='admin')             
+                    <ul class="nav navbar-nav">
+                        <li> {{ HTML::link('usuarios', 'Directorio Empleados')}}</li>
+                    </ul>
+                    <ul class="nav navbar-nav">
+                        <li> {{ HTML::link('impresoras', 'Impresoras')}}</li>
+                    </ul>
+                    <ul class="nav navbar-nav">
+                        <li> {{ HTML::link('noticias', 'Noticias')}}</li>
+                    </ul>
+                    <ul class="nav navbar-nav">
+                        <li> {{ HTML::link('usuarios', 'Contenido')}}</li>
+                    </ul>
+                    <ul class="nav navbar-nav">
+                        <li> {{ HTML::link('cuentas', 'Cuentas')}}</li>
+                    </ul>
+                    <ul class="nav navbar-nav">
+                        <li> {{ HTML::link('emails/index', 'Correo')}}</li>
+                    </ul>
+                    <ul class="nav navbar-nav">
+                        <li> {{ HTML::link('usuarios', 'Administrador')}}</li> 
+                    </ul>                
+                    <ul class="nav navbar-nav">
+                        <li> {{ HTML::link('sistemas', 'Sistemas')}}</li>
+                    </ul>
+                @else
+                    <ul class="nav navbar-nav">
+                        <li> {{ HTML::link('impresoras', 'Impresoras')}}</li>
+                    </ul>
+                    <ul class="nav navbar-nav">
+                        <li> {{ HTML::link('noticias', 'Noticias')}}</li>
+                    </ul>
+                    <ul class="nav navbar-nav">
+                        <li> {{ HTML::link('cuentas', 'Cuentas')}}</li>
+                    </ul>
+                    <ul class="nav navbar-nav">
+                        <li> {{ HTML::link('emails/index', 'Correo')}}</li>
+                    </ul>              
+                    <ul class="nav navbar-nav">
+                        <li> {{ HTML::link('sistemas', 'Sistemas')}}</li>
+                    </ul>
+                @endif
             @endif
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">

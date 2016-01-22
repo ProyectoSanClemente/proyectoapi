@@ -16,6 +16,7 @@
         <!-- Styles -->
     {{HTML::style('css/bootstrap.min.css')}}
     {{HTML::style('css/navbar-fixed-top.css')}}
+    {{HTML::style('css/navbar-fixed-bottom.css')}}
     {{HTML::style('css/jquery.dataTables.css')}}      
     
         <!-- Javascipts -->
@@ -28,24 +29,16 @@
     <nav class="navbar navbar-default  navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <!-- Collapsed Hamburger -->
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#spark-navbar-collapse">
-                    <span class="sr-only">Toggle Navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/home') }}">
                     Inicio
                 </a>
             </div>
             
-            <div class="collapse navbar-collapse" id="spark-navbar-collapse">
+           
                 <!-- Left Side Of Navbar -->
-             @if(!Auth::guest())
-                 @if(Auth::user()->rol=='admin')             
+            @if(!Auth::guest())
+                @if(Auth::user()->rol=='admin')             
                     <ul class="nav navbar-nav">
                         <li> {{ HTML::link('usuarios', 'Directorio Empleados')}}</li>
                     </ul>
@@ -88,38 +81,65 @@
                     </ul>
                 @endif
             @endif
-                <!-- Right Side Of Navbar -->
-                <ul class="nav navbar-nav navbar-right">
-                    <!-- Authentication Links -->
-                    @if (Auth::guest())
-                        <li><a href="{{ url('/login') }}">Iniciar Sesion</a></li>
-                    @else
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{HTML::image(Auth::user()->imagen,null,array('class'=>'img-circle special-img','width'=>'25px'))}}
+            <!-- Right Side Of Navbar -->
+            <ul class="nav navbar-nav navbar-right">
+                <!-- Authentication Links -->
+                @if (Auth::guest())
+                    <li><a href="{{ url('/login') }}">Iniciar Sesion</a></li>
+                @else
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            {{HTML::image(Auth::user()->imagen,null,array('class'=>'img-circle special-img','width'=>'25px'))}}
 
-                                {{ Auth::user()->nombre.' '.Auth::user()->apellido }} <span class="caret"></span>
-                            </a>
+                            {{ Auth::user()->nombre.' '.Auth::user()->apellido }} <span class="caret"></span>
+                        </a>
 
-                            <ul class="dropdown-menu" role="menu">
-                                
-                                
-                                <li><a href="{{ URL::to('usuarios/' .Auth::id().'/edit') }}"><i class="fa fa-btn fa-edit"></i>Editar</a></li>
+                        <ul class="dropdown-menu" role="menu">
+                            
+                            
+                            <li><a href="{{ URL::to('usuarios/' .Auth::id().'/edit') }}"><i class="fa fa-btn fa-edit"></i>Editar</a></li>
 
-                                <li role="separator" class="divider"></li>
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Cerrar Sesión</a></li>
-                            </ul>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Cerrar Sesión</a></li>
+                        </ul>
 
 
-                        </li>
-                    @endif
-                </ul>
-            </div>
+                    </li>
+                @endif
+            </ul>
         </div>
     </nav>
+    
+    <div class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+        <div class="container">
+            <ul class="nav navbar-nav">
+                        <li> {{ HTML::link('usuarios', 'Directorio Empleados')}}</li>
+                    </ul>
+                    <ul class="nav navbar-nav">
+                        <li> {{ HTML::link('impresoras', 'Impresoras')}}</li>
+                    </ul>
+                    <ul class="nav navbar-nav">
+                        <li> {{ HTML::link('noticias', 'Noticias')}}</li>
+                    </ul>
+                    <ul class="nav navbar-nav">
+                        <li> {{ HTML::link('usuarios', 'Contenido')}}</li>
+                    </ul>
+                    <ul class="nav navbar-nav">
+                        <li> {{ HTML::link('cuentas', 'Cuentas')}}</li>
+                    </ul>
+                    <ul class="nav navbar-nav">
+                        <li> {{ HTML::link('emails/index', 'Correo')}}</li>
+                    </ul>
+                    <ul class="nav navbar-nav">
+                        <li> {{ HTML::link('usuarios', 'Administrador')}}</li> 
+                    </ul>                
+                    <ul class="nav navbar-nav">
+                        <li> {{ HTML::link('sistemas', 'Sistemas')}}</li>
+            </ul>
+        </div>
+    </div>    
     @yield('content')
     
-
 </body>
 </html>
 

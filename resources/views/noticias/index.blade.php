@@ -25,7 +25,7 @@
             <h2>Noticias RSS</h2>
            
             @foreach ($feed->get_items() as $item)
-                <h3><a href="{{ $item->get_permalink() }}">{{ $item->get_title() }}</a></h3>
+                <h3><a href="{{ $item->get_permalink() }}" target='_blank'>{{ $item->get_title() }}</a></h3>
                 <p>{{ $item->get_description() }}</p>
                 
             @endforeach

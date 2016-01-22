@@ -13,6 +13,7 @@ class Usuario extends Model
 		"nombre",
 		"apellido",
 		"displayname",
+		"rol",
 		"email",
 		"password",
 		"imagen"

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Middleware;
-
+use Flash;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,6 +21,7 @@ class Authenticate
             if ($request->ajax()) {
                 return response('Unauthorized.', 401);
             } else {
+                Flash::error('Se debe iniciar sesión.');
                 return redirect()->guest('login');
             }
         }

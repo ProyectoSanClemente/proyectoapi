@@ -20,6 +20,7 @@ class NoticeController extends AppBaseController
 	function __construct(NoticeRepository $noticeRepo)
 	{
 		$this->noticeRepository = $noticeRepo;
+		$this->middleware('auth',['only'=>['create','edit']]);
 	}
 
 	/**

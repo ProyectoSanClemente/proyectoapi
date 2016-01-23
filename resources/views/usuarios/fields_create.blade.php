@@ -22,6 +22,21 @@
 	                        </div>
 	                    </div>
 
+                        <!-- Rut Field -->
+                        <div class="form-group{{ $errors->has('rut') ? ' has-error' : '' }}">
+                            <div class="form-group">
+                                {!! Form::label('rut', 'Rut:',array('class'=>"col-md-4 control-label")) !!}
+                                <div class="col-md-6">
+                                {!! Form::text('rut', null, ['class' => 'form-control']) !!}
+                                 @if ($errors->has('rut'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('rut') }}</strong>
+                                    </span>
+                                @endif  
+                                </div>
+                            </div>
+                        </div>
+
                         <!-- Nombre Field -->
                         <div class="form-group{{ $errors->has('nombre') ? ' has-error' : '' }}">
 	                        <div class="form-group">

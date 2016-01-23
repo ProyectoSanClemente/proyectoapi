@@ -64,6 +64,7 @@ class UsuarioController extends Controller
         else
         	$input['imagen']='images/avatar/default.png';
 
+        $input['displayname']=$input['nombre'].' '.$input['apellido'];
         $usuario = $this->usuarioRepository->create($input);
 		
 		Flash::success('Usuario agregado satisfactoriamente.');

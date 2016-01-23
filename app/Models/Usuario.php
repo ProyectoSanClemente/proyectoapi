@@ -10,6 +10,7 @@ class Usuario extends Model
 
 	public $fillable = [
 		"accountname",
+		"rut",
 		"nombre",
 		"apellido",
 		"displayname",
@@ -34,11 +35,11 @@ class Usuario extends Model
     ];
 
 	public static $create_rules = [
-		"accountname" => "required",
+		"accountname" => "required|unique:usuarios",
 		"nombre" => "required",
 		"apellido" => "required",
 		"email" => "email",
-		'password' => 'min:3|confirmed',
+		'password' => 'required|min:3|confirmed',
         'password_confirmation' => 'min:3'
 	];
 
